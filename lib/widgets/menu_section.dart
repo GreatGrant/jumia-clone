@@ -24,7 +24,10 @@ class MenuSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SectionHeader(title: title),
-          Divider(height: 2, color: Color(0xFFF1F1F1),),
+          Divider(
+            height: Theme.of(context).dividerTheme.space,
+            color: Theme.of(context).dividerTheme.color,
+          ),
           const SizedBox(height: 2),
           ...items,
         ],

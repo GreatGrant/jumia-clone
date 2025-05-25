@@ -10,7 +10,7 @@ class AppColors{
   static const Color textAccent = Color(0xFF254995); // InfoBanner text/icon
   static const Color textSecondary = Color(0xFF666666); // SectionHeader text
   static const Color backgroundLight = Color(0xFFF1F1F1); // Scaffold background
-  static const Color divider = Color(0xFFE0E0E0); // Divider color
+  static const Color divider = Color(0xFFF1F1F1); // Divider color
   static const Color surface = Colors.white; // Cards, banners
 
 }
