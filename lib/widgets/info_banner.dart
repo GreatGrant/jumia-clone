@@ -75,7 +75,7 @@ class InfoBanner extends StatelessWidget {
                   style: const TextStyle(
                     color: Color(0xFF254995),
                     fontSize: 14,
-                    fontWeight: FontWeight.w800,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ),

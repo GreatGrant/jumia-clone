@@ -5,17 +5,38 @@ import 'package:jumia_clone/widgets/welcome_card.dart';
 import '../main.dart';
 import 'info_banner.dart';
 
-class AccountAppBarWithContent extends StatelessWidget implements PreferredSizeWidget {
-  const AccountAppBarWithContent({super.key});
+class AccountAppBarWithContent extends StatefulWidget implements PreferredSizeWidget {
+  final bool isLoggedIn;
+  final bool hasInternet;
+
+  const AccountAppBarWithContent({
+    super.key,
+    this.isLoggedIn = false,
+    this.hasInternet = false,
+  });
 
   @override
-  Size get preferredSize => const Size.fromHeight(156);
+  State<AccountAppBarWithContent> createState() => _AccountAppBarWithContentState();
+
+  @override
+  Size get preferredSize {
+    // Base height: Account row (~50) + WelcomeCard (~70) + spacers (12 + 12 = 24)
+    const double baseHeight = 50 + 70 + 24;
+    // Add InfoBanner height (~36) if visible (i.e., !isLoggedIn || !hasInternet)
+    const double infoBannerHeight = 36;
+    final double totalHeight = baseHeight + ((isLoggedIn && hasInternet) ? 0 : infoBannerHeight);
+    return Size.fromHeight(totalHeight);
+  }
+}
+
+class _AccountAppBarWithContentState extends State<AccountAppBarWithContent> {
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFF2C2C2C),
+      color: const Color(0xFF282828),
       child: Column(
+        mainAxisSize: MainAxisSize.min, // Shrink to fit content
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Padding for Account row
@@ -24,13 +45,9 @@ class AccountAppBarWithContent extends StatelessWidget implements PreferredSizeW
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                 Text(
                   'Account',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
-                  ),
+                  style: Theme.of(context).appBarTheme.titleTextStyle,
                 ),
                 IconButton(
                   icon: const Icon(Icons.search, color: Colors.white),
@@ -54,13 +71,11 @@ class AccountAppBarWithContent extends StatelessWidget implements PreferredSizeW
               },
             ),
           ),
-
           const SizedBox(height: 12),
-
-          // For InfoBannerController, if you want same padding too:
+          // InfoBannerController with same padding as others
           InfoBannerController(
-            isLoggedIn: false,
-            hasInternet: false,
+            isLoggedIn: widget.isLoggedIn,
+            hasInternet: widget.hasInternet,
             onTap: () {
               print('Banner tapped');
             },
@@ -69,5 +84,4 @@ class AccountAppBarWithContent extends StatelessWidget implements PreferredSizeW
       ),
     );
   }
-
 }
