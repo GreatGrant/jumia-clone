@@ -50,7 +50,7 @@ class AppTheme {
         // For SectionHeader text
         labelMedium: TextStyle(
           fontSize: 14,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w700,
           color: AppColors.textSecondary,
           letterSpacing: 0.5,
         ),

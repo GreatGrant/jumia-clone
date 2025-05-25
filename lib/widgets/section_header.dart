@@ -1,5 +1,6 @@
 // Section Header Widget
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
@@ -15,11 +16,8 @@ class SectionHeader extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: Text(
         title,
-        style: const TextStyle(
-          color: Color(0xFF666666),
+        style: Theme.of(context).textTheme.labelMedium?.copyWith(
           fontSize: 13,
-          fontWeight: FontWeight.w900,
-          letterSpacing: 0.5,
         ),
       ),
     );
