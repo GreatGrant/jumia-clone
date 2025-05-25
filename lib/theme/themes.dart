@@ -28,6 +28,7 @@ class AppTheme {
           color: Colors.white,
         ),
       ),
+
       textTheme: const TextTheme(
         // For Account title, large bold text
         headlineSmall: TextStyle(
@@ -85,7 +86,7 @@ class AppTheme {
             fontWeight: FontWeight.w900,
           ),
           shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(Radius.circular(4)),
           ),
         ),
       ),

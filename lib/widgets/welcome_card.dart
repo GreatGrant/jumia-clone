@@ -1,6 +1,6 @@
-// Welcome Card Widget
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jumia_clone/theme/colors.dart';
 
 class WelcomeCard extends StatelessWidget {
   final String title;
@@ -26,41 +26,29 @@ class WelcomeCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w900,
-                ),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w900
+                  )
               ),
               const SizedBox(height: 2),
               Text(
                 subtitle,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: AppColors.surface
+                )
               ),
             ],
           ),
         ),
         ElevatedButton(
           onPressed: onButtonPressed,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFF68C1E),
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(4),
-            ),
-            elevation: 0,
-          ),
+          style: Theme.of(context).elevatedButtonTheme.style,
           child: Text(
             buttonText,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w800,
-            ),
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+              color: AppColors.surface
+            )
           ),
         ),
       ],
