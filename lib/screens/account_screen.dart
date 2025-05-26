@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jumia_clone/theme/colors.dart';
 import 'package:jumia_clone/widgets/menu_section.dart';
 import 'package:jumia_clone/widgets/action_button.dart';
 import 'package:jumia_clone/widgets/custom_appbar.dart';
@@ -28,13 +29,13 @@ class AccountScreen extends StatelessWidget {
                     Icon(
                       Icons.more_horiz_outlined,
                       size: 12,
-                      color: Color(0xFFF68C1E),
+                      color: AppColors.primary,
                     ),
                   ],
                 ),
                 text: 'Start Live Chat',
                 onPressed: () => context.go('/live-chat'),
-                backgroundColor: const Color(0xFFF68C1E),
+                backgroundColor: AppColors.primary,
               ),
               const SizedBox(height: 16),
               MenuSection(
