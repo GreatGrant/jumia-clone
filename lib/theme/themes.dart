@@ -44,7 +44,7 @@ class AppTheme {
         ),
         // For MenuListItem text
         bodySmall: TextStyle(
-          fontSize: 13,
+          fontSize: 12,
           fontWeight: FontWeight.w600,
           color: AppColors.textDark,
         ),
@@ -79,6 +79,7 @@ class AppTheme {
       // Button theme (for ActionButton, assuming elevated button style)
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 12),
           backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           textStyle: const TextStyle(

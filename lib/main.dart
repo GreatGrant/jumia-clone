@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:jumia_clone/screens/account_screen.dart';
 import 'package:jumia_clone/theme/themes.dart';
 
+import 'navigation/router.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -12,10 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+    return MaterialApp.router(
       title: 'Jumia Account',
       theme: AppTheme.theme,
-      home: AccountScreen(),
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
     );
   }

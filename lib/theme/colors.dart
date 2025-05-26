@@ -12,5 +12,8 @@ class AppColors{
   static const Color backgroundLight = Color(0xFFF1F1F1); // Scaffold background
   static const Color divider = Color(0xFFF1F1F1); // Divider color
   static const Color surface = Colors.white; // Cards, banners
+  static const Color selectedColor = Color(0xFFF68C1E);
+  static const Color unselectedColor = Color(0xFF282828);
+
 
 }

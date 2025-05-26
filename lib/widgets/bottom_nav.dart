@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:jumia_clone/theme/colors.dart';
 
 import '../models/nav_item_data.dart';
 
@@ -16,8 +17,6 @@ class BottomNavigationBarCustom extends StatelessWidget {
     required this.onTap,
   });
 
-  static const Color selectedColor = Color(0xFFF68C1E);
-  static const Color unselectedColor = Color(0xFF282828);
 
   static const List<NavItemData> _items = [
     NavItemData(Icons.home_outlined, Icons.home, 'Home'),
@@ -35,8 +34,8 @@ class BottomNavigationBarCustom extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
-            offset: Offset(0, -2),
-            blurRadius: 8,
+            offset: Offset(0, -1),
+            blurRadius: 1,
           ),
         ],
       ),
@@ -49,7 +48,7 @@ class BottomNavigationBarCustom extends StatelessWidget {
               final item = _items[index];
               final isSelected = currentIndex == index;
               final icon = isSelected ? item.filledIcon : item.outlinedIcon;
-              final color = isSelected ? selectedColor : unselectedColor;
+              final color = isSelected ? AppColors.selectedColor : AppColors.unselectedColor;
 
               return GestureDetector(
                 onTap: () => onTap(index),
@@ -60,11 +59,9 @@ class BottomNavigationBarCustom extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       item.label,
-                      style: TextStyle(
-                        color: color,
-                        fontSize: 12,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.w700,
-                      ),
+                      )
                     ),
                   ],
                 ),

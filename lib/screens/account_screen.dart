@@ -1,14 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:jumia_clone/widgets/menu_section.dart';
-
-import '../main.dart';
-import '../widgets/action_button.dart';
-import '../widgets/bottom_nav.dart';
-import '../widgets/custom_appbar.dart';
-import '../widgets/info_banner.dart';
-import '../widgets/menu_list.dart';
-import '../widgets/section_header.dart';
+import 'package:jumia_clone/widgets/action_button.dart';
+import 'package:jumia_clone/widgets/custom_appbar.dart';
+import 'package:jumia_clone/widgets/menu_list.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -29,29 +25,29 @@ class AccountScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   children: const [
                     Icon(Icons.chat_bubble, size: 24),
-                    Icon(Icons.more_horiz_outlined, size: 12, color: Color(0xFFF68C1E),), // Smaller and centered
+                    Icon(
+                      Icons.more_horiz_outlined,
+                      size: 12,
+                      color: Color(0xFFF68C1E),
+                    ),
                   ],
                 ),
                 text: 'Start Live Chat',
-                onPressed: () => print('Chat pressed'),
-                backgroundColor: Color(0xFFF68C1E),
+                onPressed: () => context.go('/live-chat'),
+                backgroundColor: const Color(0xFFF68C1E),
               ),
-
               const SizedBox(height: 16),
-
               MenuSection(
                 title: 'Need Assistance?',
                 items: [
                   MenuListItem(
                     icon: Icons.info_outline,
                     title: 'Help & Support',
-                    onTap: () => print('Tapped'),
+                    onTap: () => context.go('/help-and-support'),
                   ),
                 ],
               ),
-
               const SizedBox(height: 1),
-      
               MenuSection(
                 title: 'My Jumia Account',
                 items: [
@@ -59,102 +55,95 @@ class AccountScreen extends StatelessWidget {
                     icon: Icons.shopping_bag_outlined,
                     title: 'Orders',
                     onTap: () {
-                      print('Orders tapped');
+                      context.go('/orders');
                     },
                   ),
                   MenuListItem(
                     icon: Icons.email_outlined,
                     title: 'Inbox',
                     onTap: () {
-                      print('Inbox tapped');
+                      context.go('/inbox');
                     },
                   ),
-
                   MenuListItem(
                     icon: Icons.rate_review_outlined,
                     title: 'Ratings & Reviews',
                     onTap: () {
-                      print('Ratings & Reviews tapped');
+                      context.go('/ratings');
                     },
                   ),
-
                   MenuListItem(
                     icon: Icons.local_offer_outlined,
                     title: 'Vouchers',
                     onTap: () {
-                      print('Vouchers tapped');
+                      context.go('/vouchers');
                     },
                   ),
-
                   MenuListItem(
                     icon: Icons.favorite_outline,
                     title: 'Wishlist',
                     onTap: () {
-                      print('Wishlist tapped');
+                      context.go('/account-wishlist');
                     },
                   ),
-
                   MenuListItem(
                     icon: Icons.store,
                     title: 'Follow Seller',
                     onTap: () {
-                      print('Follow Seller tapped');
+                      context.go('/follow-seller');
                     },
                   ),
-
                   MenuListItem(
                     icon: Icons.history,
                     title: 'Recently Viewed',
                     onTap: () {
-                      print('Recently Viewed tapped');
+                      context.go('/recently-viewed');
                     },
                   ),
                   MenuListItem(
                     icon: Icons.search,
                     title: 'Recently Searched',
                     onTap: () {
-                      print('Recently Viewed tapped');
+                      context.go('/recently-searched');
                     },
                   ),
-                ]
+                ],
               ),
-
               const SizedBox(height: 1),
-
-          MenuSection(
-            title: 'My Settings',
-            items: [
-              MenuListItem(
-                title: 'Payment Settings',
-                onTap: () {
-
-                },
+              MenuSection(
+                title: 'My Settings',
+                items: [
+                  MenuListItem(
+                    icon: Icons.payment,
+                    title: 'Payment Settings',
+                    onTap: () {
+                      context.go('/payment-settings');
+                    },
+                  ),
+                  MenuListItem(
+                    icon: Icons.book,
+                    title: 'Address Book',
+                    onTap: () {
+                      context.go('/address-book');
+                    },
+                  ),
+                ],
               ),
-              MenuListItem(
-                title: 'Address Book',
-                onTap: () {
-
-                },
-              ),
-
-            ]
-          ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Text("Login", style: Theme.of(context).textTheme.labelLarge,)],
+                  children: [
+                    Text(
+                      "Login",
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                  ],
                 ),
-              )
+              ),
             ],
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBarCustom(
-          currentIndex: 4,
-          onTap: (index) {
-            print('Bottom nav tapped: $index');
-          },
         ),
       ),
     );

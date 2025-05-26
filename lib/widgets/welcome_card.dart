@@ -43,7 +43,11 @@ class WelcomeCard extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: onButtonPressed,
-          style: Theme.of(context).elevatedButtonTheme.style,
+          style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+            padding: WidgetStateProperty.all(
+              EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            ),
+          ),
           child: Text(
             buttonText,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(

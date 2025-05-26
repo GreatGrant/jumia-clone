@@ -15,7 +15,7 @@ class MenuSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 3),
       padding: const EdgeInsets.only(top: 8, bottom: 12),
       decoration: BoxDecoration(
         color: Colors.white,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jumia_clone/theme/colors.dart';
 
 class ActionButton extends StatelessWidget {
   final Widget icon;
@@ -21,15 +22,7 @@ class ActionButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(vertical: 13),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
-          ),
-          elevation: 2,
-        ),
+        style: Theme.of(context).elevatedButtonTheme.style,
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -42,10 +35,9 @@ class ActionButton extends StatelessWidget {
             ),
             Text(
               text,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w900,
-              ),
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                color: AppColors.surface
+              )
             ),
           ],
         ),
