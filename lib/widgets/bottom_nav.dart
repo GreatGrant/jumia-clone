@@ -1,10 +1,7 @@
 // Bottom Navigation Bar Custom Widget
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:jumia_clone/theme/colors.dart';
-
 import '../models/nav_item_data.dart';
 
 class BottomNavigationBarCustom extends StatelessWidget {
@@ -16,7 +13,6 @@ class BottomNavigationBarCustom extends StatelessWidget {
     required this.currentIndex,
     required this.onTap,
   });
-
 
   static const List<NavItemData> _items = [
     NavItemData(Icons.home_outlined, Icons.home, 'Home'),
@@ -40,37 +36,43 @@ class BottomNavigationBarCustom extends StatelessWidget {
         ],
       ),
       child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: List.generate(_items.length, (index) {
-              final item = _items[index];
-              final isSelected = currentIndex == index;
-              final icon = isSelected ? item.filledIcon : item.outlinedIcon;
-              final color = isSelected ? AppColors.selectedColor : AppColors.unselectedColor;
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: List.generate(_items.length, (index) {
+            final item = _items[index];
+            final isSelected = currentIndex == index;
+            final icon = isSelected ? item.filledIcon : item.outlinedIcon;
+            final color = isSelected ? AppColors.selectedColor : AppColors.unselectedColor;
 
-              return GestureDetector(
+            return Material(
+              color: Colors.transparent,
+              child: InkWell(
                 onTap: () => onTap(index),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(icon, color: color, size: 24),
-                    const SizedBox(height: 4),
-                    Text(
-                      item.label,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      )
-                    ),
-                  ],
+                borderRadius: BorderRadius.circular(12),
+                splashColor: Colors.grey.withOpacity(0.3),
+                highlightColor: Colors.grey.withOpacity(0.1),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(icon, color: color, size: 24),
+                      const SizedBox(height: 4),
+                      Text(
+                        item.label,
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: color, // Apply the same color logic to text
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              );
-            }),
-          ),
+              ),
+            );
+          }),
         ),
       ),
     );
   }
 }
-
