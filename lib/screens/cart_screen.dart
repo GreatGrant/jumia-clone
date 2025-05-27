@@ -63,7 +63,12 @@ class _CartScreenState extends State<CartScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 46, 0, 8),
-            child: NoConnectionWidget(onRetry: (){}),
+            child: NoConnectionWidget(
+              icon: Icons.shopping_cart_outlined,
+                title : 'Your cart is empty!',
+                subtitle : 'Browse our categories and discover our best deals!',
+                buttonText : 'Start shopping',
+                onRetry: (){}),
           ),
           RecentlyViewedWidget(
             items: recentlyViewedItems,

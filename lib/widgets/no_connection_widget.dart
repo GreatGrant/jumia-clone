@@ -57,7 +57,7 @@ class NoConnectionWidget extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 34),
-            RetryButton(onPressed: (){})
+            RetryButton(text: buttonText, onPressed: (){})
           ],
         ),
       ),
