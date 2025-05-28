@@ -20,11 +20,11 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             children: [
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Icon(
                   Icons.search,
                   color: Colors.black,
-                  size: 22.0,
+                  size: 25.0,
                 ),
               ),
               const Expanded(
