@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jumia_clone/widgets/no_connection_widget.dart';
+
+import '../widgets/no_connection_widget.dart';
+import '../widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: const SearchAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
