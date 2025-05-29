@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jumia_clone/theme/colors.dart';
+import 'package:jumia_clone/widgets/promomtional_card_grid.dart';
+import 'package:jumia_clone/widgets/promotional_card_row.dart';
 
 import '../widgets/no_connection_widget.dart';
+import '../widgets/promotional_card.dart';
 import '../widgets/promotional_slider.dart';
 import '../widgets/search_bar.dart';
 
@@ -27,9 +31,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             height: 57,
             width: double.infinity,
-            decoration: const BoxDecoration(
-              color: Color(0xFF6AC1D5),
-            ),
+            decoration: const BoxDecoration(color: Color(0xFF6AC1D5)),
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
             child: const Text(
               'CALL TO ORDER: 07006000000,\n02018883300',
@@ -41,6 +43,49 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           PromoSlider(imageUrls: promoImages),
+          SizedBox(height: 8),
+          PromotionalCardGrid(
+            cards: [
+              PromotionalCard(
+                imagePath:
+                    'https://ng.jumia.is/cms/0-1-weekly-cps/0-2025/Awoof-deals/Aotm-Logo.png',
+                label: 'Awoof',
+                backgroundColor: AppColors.primary, // Orange background
+                onTap: () {
+                  print('Awoof tapped!');
+                },
+              ),
+              PromotionalCard(
+                imagePath:
+                    'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/electronics.png',
+                label: 'Appliances',
+                backgroundColor: AppColors.primary,
+                onTap: () {
+                  print('Appliances tapped!');
+                },
+              ),
+              PromotionalCard(
+                imagePath:
+                    'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/BUY-2_updated.gif',
+                label: 'Up to 80% Off',
+                backgroundColor: Colors.grey[200]!,
+                onTap: () {
+                  print('Up to 80% Off tapped!');
+                },
+              ),
+              PromotionalCard(
+                imagePath:
+                    'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/phones.png',
+                label: 'Phones & Tablets',
+                backgroundColor: Colors.grey[200]!,
+                onTap: () {
+                  print('Phones & Tablets tapped!');
+                },
+              ),
+            ],
+          ),
+          SizedBox(height: 8),
+
         ],
       ),
     );

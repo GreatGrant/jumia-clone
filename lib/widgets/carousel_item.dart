@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 class CarouselItem extends StatelessWidget {
   final String imageUrl;
 
-  const CarouselItem({required this.imageUrl});
+  const CarouselItem({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(4.0, 8.0, 4.0, 5.0),
         child: Container(
           constraints: const BoxConstraints(maxWidth: 350),
           decoration: BoxDecoration(
