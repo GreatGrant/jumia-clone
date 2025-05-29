@@ -27,10 +27,14 @@ class _FlashSaleHeaderState extends State<FlashSaleHeader> {
           // Tag Icon
           Padding(
             padding: const EdgeInsets.only(right: 8),
-            child: Icon(
-              Icons.local_offer,
-              color: AppColors.primary,
-              size: 20,
+            child: Transform(
+              alignment: Alignment.center,
+              transform: Matrix4.identity()..scale(-1.0, 1.0),
+              child: Icon(
+                Icons.local_offer,
+                color: AppColors.primary,
+                size: 20,
+              ),
             ),
           ),
 
