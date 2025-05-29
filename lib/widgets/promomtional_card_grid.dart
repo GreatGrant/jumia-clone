@@ -18,7 +18,7 @@ class PromotionalCardGrid extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(), // Disables scrolling (if inside a scrollable parent)
         padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 8.0),
         mainAxisSpacing: 8.0, // Spacing between rows
-        crossAxisSpacing: 2.0, // Spacing between columns
+        crossAxisSpacing: 0.5, // Spacing between columns
         childAspectRatio: 1 / 1.4, // Adjust ratio to fit card and label
         children: cards,
       ),

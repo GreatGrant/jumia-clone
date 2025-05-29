@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class PromotionalCard extends StatelessWidget {
@@ -17,56 +17,61 @@ class PromotionalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          // Card with image/graphic
-          Container(
-            width: 77, // Fixed width for each card
-            height: 77, // Fixed height for each card
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(4.0),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(4.0),
-              child: Image.network(
-                imagePath,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Center(
-                    child: Text(
-                      label[0], // Fallback to first letter of label
-                      style: const TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+    return Material(
+      color: Colors.transparent, // Keeps background clean
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(4.0),
+        child: Column(
+          children: [
+            SizedBox(
+              width: 80,
+              height: 80,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4.0),
+                  child: CachedNetworkImage(
+                    imageUrl: imagePath,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) => const Center(
+                      child: SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: CircularProgressIndicator(strokeWidth: 2),
                       ),
                     ),
-                  );
-                },
+                    errorWidget: (context, url, error) => Center(
+                      child: Text(
+                        label[0],
+                        style: const TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 8.0),
-          // Label below the card
-          SizedBox(
-            width: double.infinity,
-            child: Text(
-              label,
-              style: const TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
+            const SizedBox(height: 8.0),
+            SizedBox(
+              width: double.infinity,
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87,
+                ),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
             ),
-          ),
-
-        ],
+          ],
+        ),
       ),
     );
   }

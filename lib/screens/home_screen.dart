@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jumia_clone/theme/colors.dart';
 import 'package:jumia_clone/widgets/promomtional_card_grid.dart';
 
+import '../widgets/flash_sales_header.dart';
 import '../widgets/no_connection_widget.dart';
 import '../widgets/promotional_card.dart';
 import '../widgets/promotional_slider.dart';
@@ -161,6 +162,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            FlashSaleHeader(timeLeft: '16h:58m:23s'),
           ],
         ),
       ),
