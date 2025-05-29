@@ -23,8 +23,8 @@ class PromotionalCard extends StatelessWidget {
         children: [
           // Card with image/graphic
           Container(
-            width: 70, // Fixed width for each card
-            height: 70, // Fixed height for each card
+            width: 77, // Fixed width for each card
+            height: 77, // Fixed height for each card
             decoration: BoxDecoration(
               color: backgroundColor,
               borderRadius: BorderRadius.circular(4.0),
