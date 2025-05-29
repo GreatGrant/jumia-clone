@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jumia_clone/theme/colors.dart';
 import 'package:jumia_clone/widgets/promomtional_card_grid.dart';
-import 'package:jumia_clone/widgets/promotional_card_row.dart';
 
 import '../widgets/no_connection_widget.dart';
 import '../widgets/promotional_card.dart';

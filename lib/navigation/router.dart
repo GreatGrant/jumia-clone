@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import '../screens/account_screen.dart';
 import '../screens/cart_screen.dart';
-import '../screens/categries_screen.dart';
+import '../screens/categories_screen.dart';
 import '../screens/follow_seller_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/inbox_screen.dart';
