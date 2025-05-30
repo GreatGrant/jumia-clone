@@ -239,13 +239,13 @@ class CompactProductCardWidget extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                     decoration: BoxDecoration(
-                      color: Colors.cyan,
+                      color: AppColors.cyan,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: const Text(
                       'Official Store',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.surface,
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
                       ),

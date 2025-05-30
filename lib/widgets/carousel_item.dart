@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jumia_clone/theme/colors.dart';
 
 class CarouselItem extends StatelessWidget {
   final String imageUrl;
@@ -25,13 +26,13 @@ class CarouselItem extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             placeholder: (context, url) => Container(
-              color: Colors.grey[200],
+              color: AppColors.lightGrey,
               child: const Center(
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
             ),
             errorWidget: (context, url, error) => Container(
-              color: Colors.grey[300],
+              color: AppColors.grey300,
               child: const Center(
                 child: Icon(Icons.broken_image, size: 50, color: Colors.grey),
               ),

@@ -62,7 +62,7 @@ class BottomNavigationBarCustom extends StatelessWidget {
                         item.label,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.w700,
-                          color: color, // Apply the same color logic to text
+                          color: color,
                         ),
                       ),
                     ],

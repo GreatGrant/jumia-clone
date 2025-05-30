@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:jumia_clone/widgets/welcome_card.dart';
 
 import '../main.dart';
+import '../theme/colors.dart';
 import 'info_banner.dart';
 
 class AccountAppBarWithContent extends StatefulWidget implements PreferredSizeWidget {
@@ -50,7 +51,7 @@ class _AccountAppBarWithContentState extends State<AccountAppBarWithContent> {
                   style: Theme.of(context).appBarTheme.titleTextStyle,
                 ),
                 IconButton(
-                  icon: const Icon(Icons.search, color: Colors.white),
+                  icon: const Icon(Icons.search, color: AppColors.surface),
                   onPressed: () {
                     print('Search pressed');
                   },
