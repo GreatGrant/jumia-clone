@@ -187,7 +187,7 @@ class CompactProductCardWidget extends StatelessWidget {
                 width: 24,
                 height: 24,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withValues(alpha: 0.7),
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(

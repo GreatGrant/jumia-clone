@@ -101,6 +101,81 @@ class HomeScreen extends StatelessWidget {
       ),
     ];
 
+    final List<ProductModel> sponsoredProducts = [
+      ProductModel(
+        id: '1',
+        isOfficialStore: true,
+        title: 'Stainless Steel Cookware Set',
+        description: '10-piece non-stick cookware set for versatile cooking',
+        price: 42900,
+        imageUrls: [
+          'https://picsum.photos/300/300?random=1',
+          'https://cdn.pixabay.com/photo/2017/02/15/10/39/salad-2068220_1280.jpg',
+        ],
+        rating: 4.5,
+        totalUnits: 25,
+        itemsLeft: 10,
+        ratingCount: 120,
+        ratingSum: 540,
+        label: ProductTag.payOnDelivery(),
+      ),
+      ProductModel(
+        id: '2',
+        isOfficialStore: false,
+        title: 'Ceramic Dinnerware Set',
+        description: '16-piece dinnerware set with plates, bowls, and mugs',
+        price: 15000,
+        originalPrice: 25000,
+        discountPercentage: 40,
+        imageUrls: [
+          'https://picsum.photos/300/300?random=2',
+          'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
+        ],
+        rating: 4.2,
+        totalUnits: 30,
+        itemsLeft: 10,
+        ratingCount: 85,
+        ratingSum: 357,
+        label: ProductTag.nonReturnable(),
+      ),
+      ProductModel(
+        id: '3',
+        isOfficialStore: false,
+        title: 'Electric Kettle',
+        description: '1.7L stainless steel kettle with fast boil',
+        price: 18500,
+        originalPrice: 22000,
+        discountPercentage: 16,
+        imageUrls: [
+          'https://picsum.photos/300/300?random=3',
+          'https://cdn.pixabay.com/photo/2017/06/02/18/24/fruit-2367029_1280.jpg',
+        ],
+        rating: 4.7,
+        totalUnits: 35,
+        itemsLeft: 9,
+        ratingCount: 200,
+        ratingSum: 940,
+      ),
+      ProductModel(
+        id: '4',
+        isOfficialStore: true,
+        title: 'Blender with Glass Jar',
+        description: 'High-power blender for smoothies and food prep',
+        price: 35000,
+        imageUrls: [
+          'https://picsum.photos/300/300?random=4',
+          'https://cdn.pixabay.com/photo/2017/05/11/19/44/fresh-fruits-2305192_1280.jpg',
+        ],
+        rating: 4.3,
+        totalUnits: 55,
+        itemsLeft: 49,
+        ratingCount: 150,
+        ratingSum: 645,
+        label: ProductTag.payOnDelivery(),
+      ),
+    ];
+    
+
     return Scaffold(
       appBar: const SearchAppBar(),
       body: SingleChildScrollView(
@@ -110,12 +185,12 @@ class HomeScreen extends StatelessWidget {
             Container(
               height: 57,
               width: double.infinity,
-              decoration: const BoxDecoration(color: Color(0xFF6AC1D5)),
+              decoration: const BoxDecoration(color: AppColors.skyBlue),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
               child: const Text(
                 'CALL TO ORDER: 07006000000,\n02018883300',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.black,
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
                 ),
@@ -129,7 +204,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-1-weekly-cps/0-2025/Awoof-deals/Aotm-Logo.png',
                   label: 'Awoof',
-                  backgroundColor: AppColors.primary, // Orange background
+                  backgroundColor: AppColors.primary,
                   onTap: () {
                     print('Awoof tapped!');
                   },
@@ -147,7 +222,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/BUY-2_updated.gif',
                   label: 'Up to 80% Off',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Up to 80% Off tapped!');
                   },
@@ -156,7 +231,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/phones.png',
                   label: 'Phones & Tablets',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Phones & Tablets tapped!');
                   },
@@ -170,7 +245,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/BUY-2_updated.gif',
                   label: 'Up to 50% Off',
-                  backgroundColor: AppColors.primary, // Orange background
+                  backgroundColor: AppColors.primary,
                   onTap: () {
                     print('Up to 50% Off tapped');
                   },
@@ -188,7 +263,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/beauty.png',
                   label: 'Beauty Must Have',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Beauty Must Have tapped!');
                   },
@@ -197,7 +272,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-1-initiatives/Jumia-delivery/300X300.png',
                   label: 'Send Packages Securely',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Phones & Tablets tapped!');
                   },
@@ -206,7 +281,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-1-initiatives/jumia-global/2025/buy-2-get-850-off/Buy-2-items.gif',
                   label: 'Buy 2, Get ₦850 Off',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Phones & Tablets tapped!');
                   },
@@ -215,7 +290,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/fashion.png',
                   label: 'Fashion deals',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Phones & Tablets tapped!');
                   },
@@ -224,7 +299,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/home.jpg',
                   label: 'Earn While You Shop',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Phones & Tablets tapped!');
                   },
@@ -233,7 +308,7 @@ class HomeScreen extends StatelessWidget {
                   imagePath:
                       'https://ng.jumia.is/cms/0-1-weekly-cps/0-2025/0-Seller/BANGER-DEALS.gif',
                   label: 'Up to 60% Off',
-                  backgroundColor: Colors.grey[200]!,
+                  backgroundColor: AppColors.lightGrey,
                   onTap: () {
                     print('Phones & Tablets tapped!');
                   },
@@ -252,7 +327,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 8),
             ProductRowWidget(
-              items: productItems,
+              items: sponsoredProducts,
               title: "Sponsored Products",
               showStock: false,
               showLabel: false,

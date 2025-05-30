@@ -49,8 +49,8 @@ class BottomNavigationBarCustom extends StatelessWidget {
               child: InkWell(
                 onTap: () => onTap(index),
                 borderRadius: BorderRadius.circular(12),
-                splashColor: Colors.grey.withOpacity(0.3),
-                highlightColor: Colors.grey.withOpacity(0.1),
+                splashColor: Colors.grey.withValues(alpha: 0.3),
+                highlightColor: Colors.grey.withValues(alpha: 0.1),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Column(
