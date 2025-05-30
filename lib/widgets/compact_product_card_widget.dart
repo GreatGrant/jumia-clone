@@ -1,15 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jumia_clone/theme/colors.dart';
-import '../models/product_model.dart';
 import 'package:intl/intl.dart';
+import '../theme/colors.dart'; // Assuming AppColors is defined here
+import '../models/product_model.dart'; // Assuming ProductModel is defined here
 
 class CompactProductCardWidget extends StatelessWidget {
   final ProductModel item;
   final VoidCallback? onTap;
   final double? width;
-  final double? height;
   final bool showStockInfo;
   final bool showAddToCart;
   final bool showFavoriteIcon;
@@ -22,7 +21,6 @@ class CompactProductCardWidget extends StatelessWidget {
     required this.item,
     this.onTap,
     this.width = 200,
-    this.height = 300,
     this.showStockInfo = false,
     this.showAddToCart = false,
     this.showFavoriteIcon = false,
@@ -31,10 +29,69 @@ class CompactProductCardWidget extends StatelessWidget {
     this.showRating = false,
   });
 
+  // Calculate the dynamic height based on visible components
+  double calculateHeight(BuildContext context) {
+    double height = 0;
+
+    // Image height + top padding
+    height += 150 + 10; // Image (150) + top padding (10)
+
+    // Official store label (if shown)
+    if (showOfficialStoreLabel && item.isOfficialStore) {
+      height += 18 + 4; // Label height (18) + padding (4)
+    }
+
+    // Content padding (top)
+    height += 12;
+
+    // Title (2 lines max, using titleSmall)
+    final textStyle = Theme.of(context).textTheme.titleSmall;
+    height += (textStyle?.fontSize ?? 14) * 2 * 1.3; // 2 lines with line height
+
+    // Spacing after title
+    height += 4;
+
+    // Price section
+    final priceStyle = Theme.of(context).textTheme.titleMedium;
+    if (showRating || showStockInfo || showAddToCart || showOfficialStoreLabel) {
+      // Price and original price in a row
+      height += (priceStyle?.fontSize ?? 16) * 1.2; // Single line height
+    } else {
+      // Price and original price in a column
+      height += (priceStyle?.fontSize ?? 16) * 1.2; // Price
+      if (item.originalPrice != null && item.discountPercentage != null) {
+        height += 13 + 4; // Original price (13) + spacing (4)
+      }
+    }
+
+    // Rating (if shown)
+    if (showRating && item.rating != null && item.ratingCount != null) {
+      height += 16 + 4; // Rating height (16) + padding (4)
+    }
+
+    // Stock info (if shown)
+    if (showStockInfo && item.itemsLeft != null && item.totalUnits != null) {
+      height += 11 + 4 + 8 + 8 + 2; // Text (11) + spacing (4) + progress bar (8) + spacing (8) + buffer (2)
+    }
+
+    // Add to cart button (if shown)
+    if (showAddToCart) {
+      height += 12 + 30; // Spacing (12) + button height (30)
+    }
+
+    // Bottom padding
+    height += 12;
+
+    // Add a small buffer to prevent overflow
+    height += 8; // Buffer for text rendering and font metrics
+
+    return height;
+  }
+
   Widget _buildImage(BuildContext context) {
     return Container(
-      width: 150, // Increased image size
-      height: 150, // Increased image size
+      width: 150,
+      height: 150,
       decoration: BoxDecoration(
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(8),
@@ -153,10 +210,11 @@ class CompactProductCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasBottomSection = showRating || showStockInfo || showAddToCart || showOfficialStoreLabel;
+    final calculatedHeight = calculateHeight(context);
 
     return SizedBox(
       width: width,
-      height: height,
+      height: calculatedHeight,
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -167,6 +225,7 @@ class CompactProductCardWidget extends StatelessWidget {
           onTap: onTap,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min, // Use min to avoid stretching
             children: [
               Center(
                 child: Padding(
@@ -193,38 +252,58 @@ class CompactProductCardWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        item.title ?? '',
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w600,
-                          height: 1.3,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min, // Use min to avoid stretching
+                  children: [
+                    Text(
+                      item.title ?? '',
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        height: 1.3,
                       ),
-                      const SizedBox(height: 4),
-                      // Price row - aligned differently based on layout
-                      if (hasBottomSection && item.originalPrice != null)
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              '₦${NumberFormat('#,##0').format(item.price)}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87,
-                              ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 4),
+                    // Price row - aligned differently based on layout
+                    if (hasBottomSection && item.originalPrice != null)
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            '₦${NumberFormat('#,##0').format(item.price)}',
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87,
                             ),
-                            const SizedBox(width: 8),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            '₦${NumberFormat('#,###').format(item.originalPrice)}',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.grey,
+                              decoration: TextDecoration.lineThrough,
+                              decorationColor: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      )
+                    else
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '₦${NumberFormat('#,##0').format(item.price)}',
+                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87,
+                            ),
+                          ),
+                          if (item.originalPrice != null && item.discountPercentage != null)
                             Text(
                               '₦${NumberFormat('#,###').format(item.originalPrice)}',
                               style: TextStyle(
@@ -234,102 +313,72 @@ class CompactProductCardWidget extends StatelessWidget {
                                 decorationColor: Colors.grey[600],
                               ),
                             ),
-                          ],
-                        )
-                      else
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        ],
+                      ),
+                    if (showRating && item.rating != null && item.ratingCount != null)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Row(
                           children: [
+                            Icon(Icons.star, size: 16, color: Colors.amber),
+                            const SizedBox(width: 4),
                             Text(
-                              '₦${NumberFormat('#,##0').format(item.price)}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(
-                                fontWeight: FontWeight.bold,
+                              '${item.rating!.toStringAsFixed(1)} (${item.ratingCount})',
+                              style: TextStyle(
+                                fontSize: 12,
                                 color: Colors.black87,
                               ),
                             ),
-                            if (item.originalPrice != null &&
-                                item.discountPercentage != null)
-                              Text(
-                                '₦${NumberFormat('#,###').format(item.originalPrice)}',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.grey,
-                                  decoration: TextDecoration.lineThrough,
-                                  decorationColor: Colors.grey[600],
-                                ),
-                              ),
                           ],
                         ),
-                      if (showRating && item.rating != null && item.ratingCount != null)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: Row(
-                            children: [
-                              Icon(Icons.star, size: 16, color: Colors.amber),
-                              const SizedBox(width: 4),
-                              Text(
-                                '${item.rating!.toStringAsFixed(1)} (${item.ratingCount})',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black87,
-                                ),
-                              ),
-                            ],
-                          ),
+                      ),
+                    if (showStockInfo && item.itemsLeft != null && item.totalUnits != null) ...[
+                      const SizedBox(height: 8),
+                      Text(
+                        '${item.itemsLeft} items left',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: AppColors.backgroundDark,
+                          fontWeight: FontWeight.w500,
                         ),
-                      if (showStockInfo &&
-                          item.itemsLeft != null &&
-                          item.totalUnits != null) ...[
-                        const SizedBox(height: 8),
-                        Text(
-                          '${item.itemsLeft} items left',
-                          style: TextStyle(
-                            fontSize: 11,
-                            color: AppColors.backgroundDark,
-                            fontWeight: FontWeight.w500,
+                      ),
+                      const SizedBox(height: 4),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: LinearProgressIndicator(
+                          value: item.itemsLeft! / item.totalUnits!,
+                          backgroundColor: Colors.grey[200],
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            AppColors.goldenAmber,
                           ),
+                          minHeight: 8,
                         ),
-                        const SizedBox(height: 4),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(4),
-                          child: LinearProgressIndicator(
-                            value: item.itemsLeft! / item.totalUnits!,
-                            backgroundColor: Colors.grey[200],
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              AppColors.goldenAmber,
-                            ),
-                            minHeight: 8,
-                          ),
-                        ),
-                      ],
-                      if (showAddToCart) ...[
-                        const SizedBox(height: 12),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primary,
-                              padding: const EdgeInsets.symmetric(vertical: 8),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                            ),
-                            child: const Text(
-                              'Add to Cart',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ],
-                  ),
+                    if (showAddToCart) ...[
+                      const SizedBox(height: 12),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                          child: const Text(
+                            'Add to Cart',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ),
             ],

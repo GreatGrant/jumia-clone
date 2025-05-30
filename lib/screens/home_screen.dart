@@ -250,6 +250,21 @@ class HomeScreen extends StatelessWidget {
               showAddToCart: false,
               showFavoriteIcon: false,
             ),
+            SizedBox(height: 8),
+            ProductRowWidget(
+              items: productItems,
+              title: "Sponsored Products",
+              showStock: false,
+              showLabel: false,
+              showOfficialStoreLabel: false,
+              showAddToCart: false,
+              showRating: false,
+              showFavoriteIcon: false,
+              onItemTap: (item) {
+                print('Tapped on ${item.title}');
+              },
+            ),
+
           ],
         ),
       ),
