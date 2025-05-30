@@ -15,6 +15,9 @@ class AppColors{
   static const Color selectedColor = Color(0xFFF68C1E);
   static const Color unselectedColor = Color(0xFF282828);
   static const Color orangeFaint = Color(0xFFFFF3E0);
+  static const Color steelBlue = Color(0xFF3B6271);
+  static Color goldenAmber = Color(0xFFF6B01D);
+
 
 
 

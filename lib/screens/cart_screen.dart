@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../models/item_model.dart';
+import '../models/product_model.dart';
 import '../widgets/no_connection_widget.dart';
-import '../widgets/recently_viewed_widget.dart';
+import '../widgets/product_row_widget.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -13,17 +13,19 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  final List<ItemModel> recentlyViewedItems = [
-    ItemModel(
+  final List<ProductModel> recentlyViewedItems = [
+    ProductModel(
       id: '1',
+      isOfficialStore: false,
       title: 'Logitech H390 USB Headset',
       description: 'High-quality USB headset with noise-canceling microphone',
       price: 42900,
       imageUrls: ['https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop'],
       rating: 4.5,
     ),
-    ItemModel(
+    ProductModel(
       id: '2',
+      isOfficialStore: false,
       title: 'Havit PC Gaming Cursor',
       description: 'Gaming headset with RGB lighting and surround sound',
       price: 15000,
@@ -33,8 +35,9 @@ class _CartScreenState extends State<CartScreen> {
       rating: 4.2,
       itemsLeft: 25,
     ),
-    ItemModel(
+    ProductModel(
       id: '3',
+      isOfficialStore: false,
       title: 'Wireless Gaming Mouse',
       description: 'High precision wireless gaming mouse with RGB',
       price: 18500,
@@ -44,8 +47,9 @@ class _CartScreenState extends State<CartScreen> {
       rating: 4.7,
       itemsLeft: 12,
     ),
-    ItemModel(
+    ProductModel(
       id: '4',
+      isOfficialStore: false,
       title: 'Mechanical Keyboard RGB',
       description: 'Gaming keyboard with mechanical switches',
       price: 35000,
@@ -68,8 +72,15 @@ class _CartScreenState extends State<CartScreen> {
               subtitle : 'Browse our categories and discover our best deals!',
               buttonText : 'Start shopping',
               onRetry: (){}),
-          RecentlyViewedWidget(
-            items: recentlyViewedItems,
+          ProductRowWidget(
+              items: recentlyViewedItems,
+              title: "Recently Viewed",
+              showStock: false,
+              showLabel: false,
+              showOfficialStoreLabel: false,
+              showAddToCart: false,
+              showRating: false,
+              showFavoriteIcon: false,
             onSeeAll: () {
               print('Navigate to Recently Viewed page');
             },
