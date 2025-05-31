@@ -34,7 +34,7 @@ class AccountScreen extends StatelessWidget {
                   ],
                 ),
                 text: 'Start Live Chat',
-                onPressed: () => context.go('/live-chat'),
+                onPressed: () => context.go('/live-chat'), // Updated
                 backgroundColor: AppColors.primary,
               ),
               const SizedBox(height: 16),
@@ -44,7 +44,7 @@ class AccountScreen extends StatelessWidget {
                   MenuListItem(
                     icon: Icons.info_outline,
                     title: 'Help & Support',
-                    onTap: () => context.go('/help-and-support'),
+                    onTap: () => context.go('/help-and-support'), // Updated
                   ),
                 ],
               ),
@@ -55,58 +55,42 @@ class AccountScreen extends StatelessWidget {
                   MenuListItem(
                     icon: Icons.shopping_bag_outlined,
                     title: 'Orders',
-                    onTap: () {
-                      context.go('/orders');
-                    },
+                    onTap: () => context.push('/orders'),
                   ),
                   MenuListItem(
                     icon: Icons.email_outlined,
                     title: 'Inbox',
-                    onTap: () {
-                      context.go('/inbox');
-                    },
+                    onTap: () => context.push('/inbox'),
                   ),
                   MenuListItem(
                     icon: Icons.rate_review_outlined,
                     title: 'Ratings & Reviews',
-                    onTap: () {
-                      context.go('/ratings');
-                    },
+                    onTap: () => context.push('/ratings'),
                   ),
                   MenuListItem(
                     icon: Icons.local_offer_outlined,
                     title: 'Vouchers',
-                    onTap: () {
-                      context.go('/vouchers');
-                    },
+                    onTap: () => context.push('/vouchers'),
                   ),
                   MenuListItem(
                     icon: Icons.favorite_outline,
                     title: 'Wishlist',
-                    onTap: () {
-                      context.go('/account-wishlist');
-                    },
+                    onTap: () => context.push('/account-wishlist'),
                   ),
                   MenuListItem(
                     icon: Icons.store,
                     title: 'Follow Seller',
-                    onTap: () {
-                      context.go('/follow-seller');
-                    },
+                    onTap: () => context.push('/follow-seller'),
                   ),
                   MenuListItem(
                     icon: Icons.history,
                     title: 'Recently Viewed',
-                    onTap: () {
-                      context.go('/recently-viewed');
-                    },
+                    onTap: () => context.push('/recently-viewed'),
                   ),
                   MenuListItem(
                     icon: Icons.search,
                     title: 'Recently Searched',
-                    onTap: () {
-                      context.go('/recently-searched');
-                    },
+                    onTap: () => context.push('/recently-searched'),
                   ),
                 ],
               ),
@@ -115,18 +99,12 @@ class AccountScreen extends StatelessWidget {
                 title: 'My Settings',
                 items: [
                   MenuListItem(
-                    icon: Icons.payment,
                     title: 'Payment Settings',
-                    onTap: () {
-                      context.go('/payment-settings');
-                    },
+                    onTap: () => context.push('/payment-settings'),
                   ),
                   MenuListItem(
-                    icon: Icons.book,
                     title: 'Address Book',
-                    onTap: () {
-                      context.go('/address-book');
-                    },
+                    onTap: () => context.push('/address-book'),
                   ),
                 ],
               ),

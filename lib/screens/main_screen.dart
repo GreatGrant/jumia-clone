@@ -11,13 +11,27 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: navigationShell,
-      bottomNavigationBar: BottomNavigationBarCustom(
-        currentIndex: navigationShell.currentIndex,
-        onTap: (index) {
-          navigationShell.goBranch(index);
-        },
+    return PopScope(
+      canPop: false, // Prevent default back button from exiting
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          // If not on HomeScreen (index 0), switch to HomeScreen
+          if (navigationShell.currentIndex != 0) {
+            navigationShell.goBranch(0); // Navigate to /home
+          } else {
+            // On HomeScreen, allow app to exit
+            Navigator.of(context).pop();
+          }
+        }
+      },
+      child: Scaffold(
+        body: navigationShell,
+        bottomNavigationBar: BottomNavigationBarCustom(
+          currentIndex: navigationShell.currentIndex,
+          onTap: (index) {
+            navigationShell.goBranch(index);
+          },
+        ),
       ),
     );
   }

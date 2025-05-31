@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '../screens/account_screen.dart';
 import '../screens/cart_screen.dart';
 import '../screens/categories_screen.dart';
@@ -15,6 +14,8 @@ import '../screens/recently_searched_screen.dart';
 import '../screens/recently_viewed.dart';
 import '../screens/vouchers_screen.dart';
 import '../screens/wish_list_screen.dart';
+import '../screens/live_chat_screen.dart'; // Add this
+import '../screens/help_and_support_screen.dart'; // Add this
 
 final GoRouter router = GoRouter(
   initialLocation: '/home',
@@ -108,6 +109,14 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/address-book',
       builder: (context, state) => const AddressBookScreen(),
+    ),
+    GoRoute(
+      path: '/live-chat',
+      builder: (context, state) => const LiveChatScreen(),
+    ),
+    GoRoute(
+      path: '/help-and-support',
+      builder: (context, state) => const HelpAndSupportScreen(),
     ),
   ],
   errorBuilder: (context, state) => Scaffold(
