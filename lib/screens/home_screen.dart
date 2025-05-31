@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
         description: '10-piece non-stick cookware set for versatile cooking',
         price: 42900,
         imageUrls: [
-          'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&h=300&fit=crop',
+          'https://images.unsplash.com/photo-1588279102567-67db026f11c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fENPT0tXQVJFJTIwU0VUfGVufDB8fDB8fHww',
         ],
         rating: 4.5,
         totalUnits: 25,
@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
         originalPrice: 25000,
         discountPercentage: 40,
         imageUrls: [
-          'https://images.unsplash.com/photo-1556207425-8b6e903a79cd?w=300&h=300&fit=crop',
+          'https://images.unsplash.com/photo-1599958681123-88cd5957db83?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2VyYW1pYyUyMGRpbm5lcndhcmV8ZW58MHx8MHx8fDA%3D',
         ],
         rating: 4.2,
         totalUnits: 30,
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
         originalPrice: 22000,
         discountPercentage: 16,
         imageUrls: [
-          'https://images.unsplash.com/photo-1602144169241-2c6b6e2e65fd?w=300&h=300&fit=crop',
+          'https://media.istockphoto.com/id/1571815108/photo/close-up-shot-of-an-unrecognisable-woman-using-kettle-in-kitchen.jpg?s=1024x1024&w=is&k=20&c=Sx7l5iHqlUsDCNN4ix1p7acB73u4SR8Dz4E9nfq0rTU=',
         ],
         rating: 4.7,
         totalUnits: 35,
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
         description: 'High-power blender for smoothies and food prep',
         price: 35000,
         imageUrls: [
-          'https://images.unsplash.com/photo-1585238333964-2d4b3f094ebb?w=300&h=300&fit=crop',
+          'https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QkxFTkRFUnxlbnwwfHwwfHx8MA%3D%3D',
         ],
         rating: 4.3,
         totalUnits: 55,
@@ -109,8 +109,8 @@ class HomeScreen extends StatelessWidget {
         description: '10-piece non-stick cookware set for versatile cooking',
         price: 42900,
         imageUrls: [
-          'https://picsum.photos/300/300?random=1',
           'https://cdn.pixabay.com/photo/2017/02/15/10/39/salad-2068220_1280.jpg',
+          'https://picsum.photos/300/300?random=1',
         ],
         rating: 4.5,
         totalUnits: 25,
@@ -128,7 +128,7 @@ class HomeScreen extends StatelessWidget {
         originalPrice: 25000,
         discountPercentage: 40,
         imageUrls: [
-          'https://picsum.photos/300/300?random=2',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzdyvmk7BrT2EuuPhzznwPmgThpoAxH700Og&s',
           'https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg',
         ],
         rating: 4.2,
@@ -147,8 +147,8 @@ class HomeScreen extends StatelessWidget {
         originalPrice: 22000,
         discountPercentage: 16,
         imageUrls: [
-          'https://picsum.photos/300/300?random=3',
-          'https://cdn.pixabay.com/photo/2017/06/02/18/24/fruit-2367029_1280.jpg',
+          'https://images.unsplash.com/photo-1571552879083-e93b6ea70d1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8RUxFQ1RSSUMlMjBLRVRUTEV8ZW58MHx8MHx8fDA%3D',
+          'https://images.unsplash.com/photo-1579752898926-3bcbc125ae2e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEVMRUNUUklDJTIwS0VUVExFfGVufDB8fDB8fHww',
         ],
         rating: 4.7,
         totalUnits: 35,
@@ -163,7 +163,7 @@ class HomeScreen extends StatelessWidget {
         description: 'High-power blender for smoothies and food prep',
         price: 35000,
         imageUrls: [
-          'https://picsum.photos/300/300?random=4',
+          'https://plus.unsplash.com/premium_photo-1681826671576-8d612accc77a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YmxlbmRlcnxlbnwwfHwwfHx8MA%3D%3D'
           'https://cdn.pixabay.com/photo/2017/05/11/19/44/fresh-fruits-2305192_1280.jpg',
         ],
         rating: 4.3,
