@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import '../widgets/bottom_nav.dart';
@@ -20,8 +21,8 @@ class MainScreen extends StatelessWidget {
             navigationShell.goBranch(0); // Navigate to /home
           } else {
             // On HomeScreen, allow app to exit
-            Navigator.of(context).pop();
-          }
+            SystemNavigator.pop();
+      }
         }
       },
       child: Scaffold(
