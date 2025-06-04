@@ -175,7 +175,159 @@ class HomeScreen extends StatelessWidget {
         label: ProductTag.payOnDelivery(),
       ),
     ];
-    
+
+    final List<ProductModel> electronics = [
+      ProductModel(
+        id: '1',
+        isOfficialStore: false,
+        title: 'Logitech H390 USB Headset',
+        description: 'High-quality USB headset with noise-canceling microphone',
+        price: 42900,
+        imageUrls: ['https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop'],
+        rating: 4.5,
+      ),
+      ProductModel(
+        id: '2',
+        isOfficialStore: false,
+        title: 'Havit PC Gaming Cursor',
+        description: 'Gaming headset with RGB lighting and surround sound',
+        price: 15000,
+        originalPrice: 25000,
+        discountPercentage: 40,
+        imageUrls: ['https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=300&h=300&fit=crop'],
+        rating: 4.2,
+        itemsLeft: 25,
+      ),
+      ProductModel(
+        id: '3',
+        isOfficialStore: false,
+        title: 'Wireless Gaming Mouse',
+        description: 'High precision wireless gaming mouse with RGB',
+        price: 18500,
+        originalPrice: 22000,
+        discountPercentage: 16,
+        imageUrls: ['https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&h=300&fit=crop'],
+        rating: 4.7,
+        itemsLeft: 12,
+      ),
+      ProductModel(
+        id: '4',
+        isOfficialStore: false,
+        title: 'Mechanical Keyboard RGB',
+        description: 'Gaming keyboard with mechanical switches',
+        price: 35000,
+        imageUrls: ['https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop'],
+        rating: 4.3,
+      ),
+    ];
+
+    final List<ProductModel> xiaomiOfficialStoreItems = [
+      ProductModel(
+        id: '101',
+        isOfficialStore: true,
+        title: 'Xiaomi Redmi Note 13 Pro',
+        description: '6.67" AMOLED, 8GB RAM, 256GB ROM, 5000mAh Battery',
+        price: 189000,
+        originalPrice: 210000,
+        discountPercentage: 10,
+        imageUrls: [
+          'https://i01.appmifile.com/webfile/globalimg/in/cms/Redmi_Note_13_Pro_5G_Black.png',
+        ],
+        rating: 4.8,
+        itemsLeft: 14,
+      ),
+      ProductModel(
+        id: '102',
+        isOfficialStore: true,
+        title: 'Xiaomi Smart Band 8',
+        description: 'Fitness tracker with 1.62" AMOLED display, 16-day battery',
+        price: 23000,
+        imageUrls: [
+          'https://i01.appmifile.com/webfile/globalimg/in/cms/Mi_Band_8_Black.png',
+        ],
+        rating: 4.6,
+      ),
+      ProductModel(
+        id: '103',
+        isOfficialStore: true,
+        title: 'Xiaomi Robot Vacuum Mop 2 Pro',
+        description: 'High-efficiency cleaning with smart navigation and mopping',
+        price: 179000,
+        originalPrice: 200000,
+        discountPercentage: 11,
+        imageUrls: [
+          'https://i01.appmifile.com/webfile/globalimg/in/cms/Robot_Vacuum_Mop_2_Pro_White.png',
+        ],
+        rating: 4.5,
+        itemsLeft: 8,
+      ),
+      ProductModel(
+        id: '104',
+        isOfficialStore: true,
+        title: 'Xiaomi TV Box S 2nd Gen',
+        description: '4K Ultra HD, Dolby Audio, Google TV',
+        price: 45000,
+        imageUrls: [
+          'https://i01.appmifile.com/webfile/globalimg/in/cms/TV_Box_S_2nd_Gen_Black.png',
+        ],
+        rating: 4.4,
+        itemsLeft: 20,
+      ),
+    ];
+
+    final List<ProductModel> phonesAndTablet = [
+      ProductModel(
+        id: '201',
+        isOfficialStore: true,
+        title: 'Samsung Galaxy A54 5G',
+        description: '6.4" Super AMOLED, 8GB RAM, 128GB ROM, 5000mAh Battery',
+        price: 295000,
+        originalPrice: 320000,
+        discountPercentage: 8,
+        imageUrls: [
+          'https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/28/2223353/1.jpg?3444',
+        ],
+        rating: 4.7,
+        itemsLeft: 10,
+      ),
+      ProductModel(
+        id: '202',
+        isOfficialStore: true,
+        title: 'Oraimo FreePods 3',
+        description: 'True Wireless Earbuds with Noise Cancellation, 20-hour playtime',
+        price: 25000,
+        imageUrls: [
+          'https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/56/6975982/1.jpg?4201',
+        ],
+        rating: 4.5,
+      ),
+      ProductModel(
+        id: '203',
+        isOfficialStore: true,
+        title: 'Infinix Smart 7',
+        description: '6.6" HD+ Display, 4GB RAM, 64GB ROM, 5000mAh Battery',
+        price: 85000,
+        originalPrice: 95000,
+        discountPercentage: 10,
+        imageUrls: [
+          'https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/39/8857604/1.jpg?8011',
+        ],
+        rating: 4.3,
+        itemsLeft: 15,
+      ),
+      ProductModel(
+        id: '204',
+        isOfficialStore: true,
+        title: 'Philips Air Fryer HD9252/90',
+        description: '4.1L Capacity, Rapid Air Technology, Digital Display',
+        price: 120000,
+        imageUrls: [
+          'https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/40/0629883/1.jpg?6147',
+        ],
+        rating: 4.6,
+        itemsLeft: 5,
+      ),
+    ];
 
     return Scaffold(
       appBar: const SearchAppBar(),
@@ -352,7 +504,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 8),
             BannerHeaderWidget(title: 'Anniversary Deals on Phones & Tablets', onSeeAllTap: (){},),
             ProductRowWidget(
-              items: productItems,
+              items: phonesAndTablet,
               showStock: false,
               showLabel: false,
               showRating: false,
@@ -385,7 +537,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 8),
             BannerHeaderWidget(title: 'Anniversary Deals on Electronics', onSeeAllTap: (){},),
             ProductRowWidget(
-              items: productItems,
+              items: electronics,
               showStock: false,
               showLabel: false,
               showRating: false,
@@ -407,7 +559,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 8),
             BannerHeaderWidget(title: 'Xiaomi Official Store', onSeeAllTap: (){},),
             ProductRowWidget(
-              items: productItems,
+              items: xiaomiOfficialStoreItems,
               showStock: false,
               showLabel: false,
               showRating: false,
