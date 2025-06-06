@@ -32,6 +32,7 @@ class AppColors {
   static final Color grey600 = Colors.grey[600]!;
   static const Color errorRed = Color(0xFFE71600);
   static final Color grey400 = Colors.grey[400]!;
+  static final Color grey500 = Colors.grey[500]!;
   static const Color deepBlue = Color(0xFF254995);
   static const lightBackground = Color(0xFFF8F9FA);
 }

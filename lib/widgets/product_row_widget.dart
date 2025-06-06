@@ -70,52 +70,52 @@ class ProductRowWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // Section Header
-          Padding(
-            padding: padding!,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (title != null)
-                  Text(
-                    title!,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w800,
-                      color: Colors.black87,
-                      letterSpacing: 0.8,
-                    ),
-                  ),
-                if (onSeeAll != null)
-                  TextButton(
-                    onPressed: onSeeAll,
-                    child: Text(
-                      'See All',
-                      style: TextStyle(
-                        color: AppColors.primary,
+          if (title != null || onSeeAll != null)
+            Padding(
+              padding: padding!,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  if (title != null)
+                    Text(
+                      title!,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        fontSize: 14,
                         fontWeight: FontWeight.w800,
+                        color: Colors.black87,
+                        letterSpacing: 0.8,
                       ),
                     ),
-                  ),
-              ],
+                  if (onSeeAll != null)
+                    TextButton(
+                      onPressed: onSeeAll,
+                      child: Text(
+                        'See All',
+                        style: TextStyle(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ),
-          ),
 
-          // Horizontal ListView with compact cards
+          // Horizontal ListView with compact cards - reduced height and padding
           SizedBox(
-            height: cardHeight + 20, // Add extra padding for consistency
+            height: cardHeight, // Removed extra padding
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.only(
                 left: padding!.left,
                 right: padding!.right,
-                bottom: 12,
               ),
               itemCount: items.length,
               itemBuilder: (context, index) {
                 final item = items[index];
                 return Padding(
                   padding: EdgeInsets.only(
-                    right: index < items.length - 1 ? 12.0 : 0,
+                    right: index < items.length - 1 ? 8.0 : 0, // Reduced from 12.0 to 8.0
                   ),
                   child: CompactProductCardWidget(
                     item: item,

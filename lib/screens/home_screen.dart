@@ -5,6 +5,7 @@ import 'package:jumia_clone/theme/colors.dart';
 import 'package:jumia_clone/util/product_tag.dart';
 import 'package:jumia_clone/widgets/promomtional_card_grid.dart';
 import 'package:jumia_clone/widgets/product_row_widget.dart';
+import 'package:jumia_clone/widgets/top_selling_grid_section.dart';
 
 import '../models/product_model.dart';
 import '../util/product_tag.dart';
@@ -205,6 +206,28 @@ class HomeScreen extends StatelessWidget {
               showFavoriteIcon: false,
             ),
             SizedBox(height: 8),
+            BannerHeaderWidget(title: 'Anniversary Deals on Fashion', onSeeAllTap: (){},),
+            ProductRowWidget(
+              items: JumiaData.anniversaryDeals,
+              showStock: false,
+              showLabel: false,
+              showRating: false,
+              showOfficialStoreLabel: false,
+              showAddToCart: false,
+              showFavoriteIcon: false,
+            ),
+            SizedBox(height: 8),
+            BannerHeaderWidget(title: 'Anniversary Deals on Appliances', onSeeAllTap: (){},),
+            ProductRowWidget(
+              items: JumiaData.electronics,
+              showStock: false,
+              showLabel: false,
+              showRating: false,
+              showOfficialStoreLabel: false,
+              showAddToCart: false,
+              showFavoriteIcon: false,
+            ),
+            SizedBox(height: 8),
             BannerHeaderWidget(title: 'Anniversary Deals for Your Home', onSeeAllTap: (){},),
             ProductRowWidget(
               items: JumiaData.anniversaryDeals,
@@ -219,6 +242,17 @@ class HomeScreen extends StatelessWidget {
             BannerHeaderWidget(title: 'Everything Must Go', subtitle: 'Up to 60% OFF', onSeeAllTap: (){},),
             ProductRowWidget(
               items: JumiaData.productItems,
+              showStock: false,
+              showLabel: false,
+              showRating: false,
+              showOfficialStoreLabel: false,
+              showAddToCart: false,
+              showFavoriteIcon: false,
+            ),
+            SizedBox(height: 8),
+            BannerHeaderWidget(title: 'Itel Official Store', onSeeAllTap: (){},),
+            ProductRowWidget(
+              items: JumiaData.jumiaTopSellersItems,
               showStock: false,
               showLabel: false,
               showRating: false,
@@ -293,9 +327,20 @@ class HomeScreen extends StatelessWidget {
               showFavoriteIcon: false,
             ),
             SizedBox(height: 8),
-            BannerHeaderWidget(title: 'Anniversary Deals on Beauty\nProducts', onSeeAllTap: (){},),
+            BannerHeaderWidget(title: 'Anniversary Deals on Beauty Products', onSeeAllTap: (){},),
             ProductRowWidget(
               items: JumiaData.niveaOfficialStoreItems,
+              showStock: false,
+              showLabel: false,
+              showRating: false,
+              showOfficialStoreLabel: false,
+              showAddToCart: false,
+              showFavoriteIcon: false,
+            ),
+            SizedBox(height: 8),
+            BannerHeaderWidget(title: 'Anniversary Deals on Computing', onSeeAllTap: (){},),
+            ProductRowWidget(
+              items: JumiaData.productItems,
               showStock: false,
               showLabel: false,
               showRating: false,
@@ -326,6 +371,17 @@ class HomeScreen extends StatelessWidget {
               showFavoriteIcon: false,
             ),
             SizedBox(height: 8),
+            BannerHeaderWidget(title: 'Half Price Store', onSeeAllTap: (){},),
+            ProductRowWidget(
+              items: JumiaData.productItems,
+              showStock: false,
+              showLabel: false,
+              showRating: false,
+              showOfficialStoreLabel: false,
+              showAddToCart: false,
+              showFavoriteIcon: false,
+            ),
+            SizedBox(height: 8),
             BannerHeaderWidget(title: 'Jumia Bar', onSeeAllTap: (){},),
             ProductRowWidget(
               items: JumiaData.productItems,
@@ -336,7 +392,7 @@ class HomeScreen extends StatelessWidget {
               showAddToCart: false,
               showFavoriteIcon: false,
             ),
-
+            TopSellingGridSection(products: JumiaData.productItems)
           ],
         ),
       ),

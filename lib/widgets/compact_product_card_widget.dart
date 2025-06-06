@@ -42,7 +42,7 @@ class CompactProductCardWidget extends StatelessWidget {
     }
 
     // Content padding (top)
-    height += 12;
+    height += 8; // Reduced from 12
 
     // Title (2 lines max, using titleSmall)
     final textStyle = Theme.of(context).textTheme.titleSmall;
@@ -79,13 +79,10 @@ class CompactProductCardWidget extends StatelessWidget {
       height += 12 + 30; // Spacing (12) + button height (30)
     }
 
-    // Bottom padding
-    height += 12;
+    // Bottom padding - reduced
+    height += 8; // Reduced from 12
 
-    // Add a small buffer to prevent overflow
-    height += 8; // Buffer for text rendering and font metrics
-
-    return height;
+    return height; // Removed extra buffer
   }
 
   Widget _buildImage(BuildContext context) {
@@ -154,7 +151,7 @@ class CompactProductCardWidget extends StatelessWidget {
                   style: const TextStyle(
                     color: AppColors.primary,
                     fontSize: 12,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
               ),
@@ -222,10 +219,12 @@ class CompactProductCardWidget extends StatelessWidget {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(12),
+          splashColor: AppColors.grey800.withValues(alpha: 0.2), // Added for ripple effect
+          highlightColor: AppColors.primary.withValues(alpha: 0.1), // Added for highlight effect
           onTap: onTap,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min, // Use min to avoid stretching
+            mainAxisSize: MainAxisSize.min,
             children: [
               Center(
                 child: Padding(
@@ -253,10 +252,10 @@ class CompactProductCardWidget extends StatelessWidget {
                   ),
                 ),
               Padding(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(8), // Reduced from 12
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min, // Use min to avoid stretching
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       item.title ?? '',
@@ -264,7 +263,7 @@ class CompactProductCardWidget extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         height: 1.3,
                       ),
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 4),
@@ -277,7 +276,7 @@ class CompactProductCardWidget extends StatelessWidget {
                             '₦${NumberFormat('#,##0').format(item.price)}',
                             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                               fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+                              color: AppColors.black87,
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -285,9 +284,9 @@ class CompactProductCardWidget extends StatelessWidget {
                             '₦${NumberFormat('#,###').format(item.originalPrice)}',
                             style: TextStyle(
                               fontSize: 13,
-                              color: Colors.grey,
+                              color: AppColors.grey,
                               decoration: TextDecoration.lineThrough,
-                              decorationColor: Colors.grey[600],
+                              decorationColor: AppColors.grey600,
                             ),
                           ),
                         ],
