@@ -1,4 +1,4 @@
-import '../util/product_tag.dart';
+import '../core/util/product_tag.dart';
 
 class ProductModel {
   final String id;

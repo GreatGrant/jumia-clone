@@ -1,5 +1,5 @@
 import '../models/product_model.dart';
-import '../util/product_tag.dart';
+import 'core/util/product_tag.dart';
 
 class JumiaData {
   static final List<String> promoImages = [

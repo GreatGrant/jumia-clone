@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:jumia_clone/jumia_data.dart';
 import 'package:jumia_clone/screens/recently_viewed.dart';
 import 'package:jumia_clone/theme/colors.dart';
-import 'package:jumia_clone/util/product_tag.dart';
+import 'package:jumia_clone/core/util/product_tag.dart';
 import 'package:jumia_clone/widgets/promomtional_card_grid.dart';
 import 'package:jumia_clone/widgets/product_row_widget.dart';
 import 'package:jumia_clone/widgets/top_selling_grid_section.dart';
 
 import '../models/product_model.dart';
-import '../util/product_tag.dart';
+import '../core/util/product_tag.dart';
 import '../widgets/banner_widget.dart';
 import '../widgets/flash_sales_header.dart';
 import '../widgets/no_connection_widget.dart';
