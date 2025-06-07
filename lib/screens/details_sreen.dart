@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:jumia_clone/models/product_model.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -30,7 +31,23 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ),
           PopupMenuButton<String>(
             onSelected: (value) {
-              // Handle selected value
+              switch (value) {
+                case 'home':
+                  context.go('/home');
+                  break;
+                case 'categories':
+                  context.go('/categories');
+                  break;
+                case 'cart':
+                  context.go('/cart');
+                  break;
+                case 'wishlist':
+                  context.go('/wishlist');
+                  break;
+                case 'account':
+                  context.go('/account');
+                  break;
+              }
             },
             itemBuilder: (BuildContext context) => [
               PopupMenuItem(
@@ -43,6 +60,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ],
                 ),
               ),
+
+              PopupMenuDivider(),
               PopupMenuItem(
                 value: 'categories',
                 child: Row(
@@ -53,6 +72,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ],
                 ),
               ),
+              PopupMenuDivider(),
+
               PopupMenuItem(
                 value: 'cart',
                 child: Row(
@@ -63,6 +84,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ],
                 ),
               ),
+
+              PopupMenuDivider(),
               PopupMenuItem(
                 value: 'wishlist',
                 child: Row(
@@ -73,6 +96,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ],
                 ),
               ),
+              PopupMenuDivider(),
+
               PopupMenuItem(
                 value: 'account',
                 child: Row(
