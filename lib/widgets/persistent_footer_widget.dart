@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jumia_clone/theme/colors.dart';
+import 'package:flutter/services.dart';
+
+import '../theme/colors.dart'; // For SystemChrome
+
 
 class PersistentFooterWidget extends StatelessWidget {
   final VoidCallback? onHomePressed;
@@ -18,9 +21,9 @@ class PersistentFooterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.surface,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.1),
@@ -32,20 +35,34 @@ class PersistentFooterWidget extends StatelessWidget {
       child: SafeArea(
         child: Row(
           children: [
-            _buildIconButton(
-              icon: Icons.home_outlined,
-              onPressed: onHomePressed,
+            Padding(
+              padding: EdgeInsetsGeometry.only(bottom: 8),
+              child: _buildIconButton(
+                icon: Icons.home_outlined,
+                onPressed: onHomePressed,
+              ),
             ),
-            const SizedBox(width: 12),
-            _buildIconButton(
-              icon: Icons.phone,
-              onPressed: onCallPressed,
+            const SizedBox(width: 8),
+            Padding(
+              padding: EdgeInsetsGeometry.only(bottom: 8),
+              child: _buildIconButton(
+                icon: Icons.phone,
+                onPressed: onCallPressed,
+              ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: 8),
             Expanded(
               child: Container(
+                margin: const EdgeInsets.only(bottom: 8),
                 height: 46,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.black.withValues(alpha: 0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
                   gradient: LinearGradient(
                     colors: [Color(0xFFFF8A00), AppColors.primary],
                     begin: Alignment.centerLeft,
@@ -59,15 +76,15 @@ class PersistentFooterWidget extends StatelessWidget {
                     onTap: onAddToCartPressed,
                     borderRadius: _buttonRadius,
                     child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.start, // Align children to the start (left)
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(width: 16),
+                        SizedBox(width: 16), // Space before icon
                         Icon(
                           Icons.add_shopping_cart_outlined,
                           color: Colors.white,
                           size: 24,
                         ),
-                        Expanded( // Expands to push the text to the center
+                        Expanded(
                           child: Center(
                             child: Text(
                               'Add To Cart',
@@ -109,7 +126,7 @@ class PersistentFooterWidget extends StatelessWidget {
           borderRadius: _buttonRadius,
           child: Icon(
             icon,
-            color: const Color(0xFFFF8A00),
+            color: AppColors.primary,
             size: 24,
           ),
         ),
@@ -117,3 +134,4 @@ class PersistentFooterWidget extends StatelessWidget {
     );
   }
 }
+

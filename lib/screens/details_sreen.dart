@@ -116,8 +116,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ],
       ),
       body: Placeholder(),
-      persistentFooterButtons: [
-        PersistentFooterWidget(
+      bottomNavigationBar: PersistentFooterWidget(
           onHomePressed: () {
             print('Home pressed');
           },
@@ -128,7 +127,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
             print('Add to cart pressed');
           },
         ),
-      ],
     );
   }
 }
