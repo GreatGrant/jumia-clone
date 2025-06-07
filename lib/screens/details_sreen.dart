@@ -90,7 +90,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 value: 'wishlist',
                 child: Row(
                   children: [
-                    Icon(Icons.favorite_outlined, color: Colors.black),
+                    Icon(Icons.favorite_outline, color: Colors.black),
                     SizedBox(width: 8),
                     Text('Wishlist'),
                   ],
@@ -102,7 +102,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 value: 'account',
                 child: Row(
                   children: [
-                    Icon(Icons.person, color: Colors.black),
+                    Icon(Icons.person_2_outlined, color: Colors.black),
                     SizedBox(width: 8),
                     Text('Account'),
                   ],
