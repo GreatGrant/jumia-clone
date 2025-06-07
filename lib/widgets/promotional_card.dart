@@ -1,17 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PromotionalCard extends StatelessWidget {
   final String imagePath;
   final String label;
   final Color backgroundColor;
-  final VoidCallback onTap;
 
   const PromotionalCard({
     super.key,
     required this.imagePath,
     required this.label,
-    required this.onTap,
     this.backgroundColor = Colors.grey,
   });
 
@@ -20,7 +19,9 @@ class PromotionalCard extends StatelessWidget {
     return Material(
       color: Colors.transparent, // Keeps background clean
       child: InkWell(
-        onTap: onTap,
+        onTap: (){
+          // context.go('/details');
+          },
         borderRadius: BorderRadius.circular(4.0),
         child: Column(
           children: [

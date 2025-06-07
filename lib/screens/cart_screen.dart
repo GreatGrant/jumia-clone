@@ -93,9 +93,6 @@ class _CartScreenState extends State<CartScreen> {
             onSeeAll: () {
               print('Navigate to Recently Viewed page');
             },
-            onItemTap: (item) {
-              print('Tapped on ${item.title}');
-            },
           ),
 
         ],

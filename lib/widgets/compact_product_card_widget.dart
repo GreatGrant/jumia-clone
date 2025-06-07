@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import '../theme/colors.dart'; // Assuming AppColors is defined here
 import '../models/product_model.dart'; // Assuming ProductModel is defined here
 
 class CompactProductCardWidget extends StatelessWidget {
   final ProductModel item;
-  final VoidCallback? onTap;
   final double? width;
   final bool showStockInfo;
   final bool showAddToCart;
@@ -19,7 +19,6 @@ class CompactProductCardWidget extends StatelessWidget {
   const CompactProductCardWidget({
     super.key,
     required this.item,
-    this.onTap,
     this.width = 200,
     this.showStockInfo = false,
     this.showAddToCart = false,
@@ -221,7 +220,7 @@ class CompactProductCardWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           splashColor: AppColors.grey800.withValues(alpha: 0.2), // Added for ripple effect
           highlightColor: AppColors.primary.withValues(alpha: 0.1), // Added for highlight effect
-          onTap: onTap,
+          onTap: ()=>{ context.push('/details', extra: item) } ,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../models/product_model.dart';
 import '../screens/account_screen.dart';
 import '../screens/cart_screen.dart';
 import '../screens/categories_screen.dart';
+import '../screens/details_sreen.dart';
 import '../screens/follow_seller_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/inbox_screen.dart';
@@ -117,6 +119,13 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/help-and-support',
       builder: (context, state) => const HelpAndSupportScreen(),
+    ),
+    GoRoute(
+      path: '/details',
+      builder: (context, state) {
+        final product = state.extra as ProductModel;
+        return DetailsScreen(product: product);
+      },
     ),
   ],
   errorBuilder: (context, state) => Scaffold(

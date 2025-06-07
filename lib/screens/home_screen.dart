@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:jumia_clone/jumia_data.dart';
 import 'package:jumia_clone/screens/recently_viewed.dart';
 import 'package:jumia_clone/theme/colors.dart';
@@ -38,36 +39,24 @@ class HomeScreen extends StatelessWidget {
                       'https://ng.jumia.is/cms/0-1-weekly-cps/0-2025/Awoof-deals/Aotm-Logo.png',
                   label: 'Awoof',
                   backgroundColor: AppColors.primary,
-                  onTap: () {
-                    print('Awoof tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/electronics.png',
                   label: 'Appliances',
                   backgroundColor: AppColors.primary,
-                  onTap: () {
-                    print('Appliances tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/BUY-2_updated.gif',
                   label: 'Up to 80% Off',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Up to 80% Off tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/phones.png',
                   label: 'Phones & Tablets',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Phones & Tablets tapped!');
-                  },
                 ),
               ],
             ),
@@ -79,72 +68,48 @@ class HomeScreen extends StatelessWidget {
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/BUY-2_updated.gif',
                   label: 'Up to 50% Off',
                   backgroundColor: AppColors.primary,
-                  onTap: () {
-                    print('Up to 50% Off tapped');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/electronics.png',
                   label: 'TV & Audio Deals',
                   backgroundColor: AppColors.primary,
-                  onTap: () {
-                    print('TV & Audio Deals tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/beauty.png',
                   label: 'Beauty Must Have',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Beauty Must Have tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-1-initiatives/Jumia-delivery/300X300.png',
                   label: 'Send Packages Securely',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Phones & Tablets tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-1-initiatives/jumia-global/2025/buy-2-get-850-off/Buy-2-items.gif',
                   label: 'Buy 2, Get ₦850 Off',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Phones & Tablets tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/fashion.png',
                   label: 'Fashion deals',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Phones & Tablets tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-0-black-friday/2024/Thumbnails/home.jpg',
                   label: 'Earn While You Shop',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Phones & Tablets tapped!');
-                  },
                 ),
                 PromotionalCard(
                   imagePath:
                       'https://ng.jumia.is/cms/0-1-weekly-cps/0-2025/0-Seller/BANGER-DEALS.gif',
                   label: 'Up to 60% Off',
                   backgroundColor: AppColors.lightGrey,
-                  onTap: () {
-                    print('Phones & Tablets tapped!');
-                  },
                 ),
               ],
             ),
@@ -168,9 +133,6 @@ class HomeScreen extends StatelessWidget {
               showAddToCart: false,
               showRating: false,
               showFavoriteIcon: false,
-              onItemTap: (item) {
-                print('Tapped on ${item.title}');
-              },
             ),
             SizedBox(height: 8),
             BannerHeaderWidget(title: 'Top Sellers'),

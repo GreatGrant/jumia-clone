@@ -9,7 +9,6 @@ class ProductRowWidget extends StatelessWidget {
   final List<ProductModel> items;
   final String? title;
   final VoidCallback? onSeeAll;
-  final void Function(ProductModel item)? onItemTap;
   final double? cardWidth;
   final EdgeInsets? padding;
   final bool showStock;
@@ -24,7 +23,6 @@ class ProductRowWidget extends StatelessWidget {
     required this.items,
     this.title,
     this.onSeeAll,
-    this.onItemTap,
     this.cardWidth = 180,
     this.padding = const EdgeInsets.symmetric(horizontal: 12),
     required this.showStock,
@@ -126,7 +124,6 @@ class ProductRowWidget extends StatelessWidget {
                     showOfficialStoreLabel: showOfficialStoreLabel,
                     showRating: showRating,
                     showLabel: showLabel,
-                    onTap: onItemTap != null ? () => onItemTap!(item) : null,
                   ),
                 );
               },
