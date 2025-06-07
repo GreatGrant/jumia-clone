@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jumia_clone/jumia_data.dart';
+import 'package:jumia_clone/models/brand_model.dart';
 
 import '../models/product_model.dart';
 import '../widgets/no_connection_widget.dart';
@@ -17,16 +19,17 @@ class _CartScreenState extends State<CartScreen> {
   final List<ProductModel> recentlyViewedItems = [
     ProductModel(
       id: '1',
-      isOfficialStore: false,
+      isOfficialStore: true,
       title: 'Logitech H390 USB Headset',
       description: 'High-quality USB headset with noise-canceling microphone',
       price: 42900,
       imageUrls: ['https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop'],
       rating: 4.5,
+      brandId: "Havit",
     ),
     ProductModel(
       id: '2',
-      isOfficialStore: false,
+      isOfficialStore: true,
       title: 'Havit PC Gaming Cursor',
       description: 'Gaming headset with RGB lighting and surround sound',
       price: 15000,
@@ -35,6 +38,7 @@ class _CartScreenState extends State<CartScreen> {
       imageUrls: ['https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=300&h=300&fit=crop'],
       rating: 4.2,
       itemsLeft: 25,
+      brandId: 'Havit',
     ),
     ProductModel(
       id: '3',
@@ -47,6 +51,7 @@ class _CartScreenState extends State<CartScreen> {
       imageUrls: ['https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&h=300&fit=crop'],
       rating: 4.7,
       itemsLeft: 12,
+      brandId: 'Havit',
     ),
     ProductModel(
       id: '4',
@@ -56,6 +61,7 @@ class _CartScreenState extends State<CartScreen> {
       price: 35000,
       imageUrls: ['https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop'],
       rating: 4.3,
+        brandId: 'Havit'
     ),
   ];
 
