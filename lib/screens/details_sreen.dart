@@ -175,26 +175,22 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (widget.product.label != null)
-                      Positioned(
-                        top: 16,
-                        left: 16,
-                        child: Container(
-                          padding: widget.product.label!.padding,
-                          decoration: BoxDecoration(
-                            color: widget.product.label!.backgroundColor,
-                            borderRadius: widget.product.label!.borderRadius,
-                          ),
-                          child: Text(
-                            widget.product.label!.label,
-                            style: TextStyle(
-                              color: widget.product.label!.textColor,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                            ),
+                      Container(
+                        padding: widget.product.label!.padding,
+                        decoration: BoxDecoration(
+                          color: widget.product.label!.backgroundColor,
+                          borderRadius: widget.product.label!.borderRadius,
+                        ),
+                        child: Text(
+                          widget.product.label!.label,
+                          style: TextStyle(
+                            color: widget.product.label!.textColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-
+                    const SizedBox(height: 8),
                     // Product Title
                     Text(
                       widget.product.title ?? 'Unnamed Product',
@@ -205,7 +201,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         height: 1.3,
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 8),
 
                     // Brand (placeholder, as brand is not in ProductModel)
                     RichText(
@@ -213,20 +209,25 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         children: [
                           TextSpan(
                             text: 'Brand: ',
-                            style: TextStyle(color: Colors.blue[600], fontSize: 14),
+                            style: TextStyle(color: AppColors.black, fontSize: 14),
                           ),
                           TextSpan(
                             text: widget.product.brandId,
                             style: TextStyle(
-                              color: Colors.blue[600],
-                              fontSize: 14,
+                              color: AppColors.deepBlue,
+                              fontSize: 12,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                           TextSpan(
                             text:
-                            ' | Similar products from ${widget.product.isOfficialStore ? "Official Store" : "Generic"}',
-                            style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                            ' | ',
+                            style: TextStyle(color: AppColors.black, fontSize: 12),
+                          ),
+                          TextSpan(
+                            text:
+                            'Similar products from ${widget.product.brandId}',
+                            style: TextStyle(color: AppColors.deepBlue, fontSize: 12),
                           ),
                         ],
                       ),
@@ -295,7 +296,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                         '₦ ${widget.product.price.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
                                         style: const TextStyle(
                                           fontSize: 24,
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w900,
                                           color: Colors.black87,
                                         ),
                                       ),

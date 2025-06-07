@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jumia_clone/theme/colors.dart';
 
 class InfoBannerController extends StatelessWidget {
   final bool isLoggedIn;
@@ -65,7 +66,7 @@ class InfoBanner extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: Color(0xFF254995),
+                color: AppColors.deepBlue,
                 size: 20,
               ),
               const SizedBox(width: 12),
