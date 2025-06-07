@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jumia_clone/models/product_model.dart';
+import 'package:jumia_clone/theme/colors.dart';
+
+import '../widgets/persistent_footer_widget.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key, required ProductModel product});
@@ -113,6 +116,19 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ],
       ),
       body: Placeholder(),
+      persistentFooterButtons: [
+        PersistentFooterWidget(
+          onHomePressed: () {
+            print('Home pressed');
+          },
+          onCallPressed: () {
+            print('Call pressed');
+          },
+          onAddToCartPressed: () {
+            print('Add to cart pressed');
+          },
+        ),
+      ],
     );
   }
 }
