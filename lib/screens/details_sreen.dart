@@ -7,6 +7,7 @@ import 'package:jumia_clone/models/product_model.dart';
 
 import '../core/util/format_time.dart';
 import '../theme/colors.dart';
+import '../widgets/discount_badge.dart';
 import '../widgets/persistent_footer_widget.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -32,8 +33,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
     // Assume isFlashSale based on discountPercentage or label for demo purposes
-    bool isFlashSale = widget.product.discountPercentage != null &&
-        widget.product.discountPercentage! > 0;
+    bool isFlashSale = widget.product.isFlashSale;
 
     return Scaffold(
       appBar: AppBar(
@@ -159,7 +159,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         child: CircularProgressIndicator(),
                       ),
                       errorWidget: (context, url, error) => const Icon(
-                        Icons.broken_image,
+                        Icons.shopping_cart,
                         size: 100,
                       ),
                     ),
@@ -239,7 +239,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: AppColors.red,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Column(
@@ -365,12 +365,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             '₦ ${widget.product.price.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
                             style: const TextStyle(
                               fontSize: 24,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w900,
                               color: Colors.black87,
                             ),
                           ),
-                          if (widget.product.originalPrice != null &&
-                              widget.product.discountPercentage != null) ...[
+                          if (widget.product.originalPrice != null) ...[
                             const SizedBox(width: 12),
                             Text(
                               '₦ ${widget.product.originalPrice!.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
@@ -381,14 +380,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               ),
                             ),
                             const SizedBox(width: 8),
-                            Text(
-                              '-${widget.product.discountPercentage!.toStringAsFixed(0)}%',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.orange[600],
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
+                            if (widget.product.discountPercentage != null)
+                              DiscountBadge(discount: widget.product.discountPercentage!)
                           ],
                         ],
                       ),

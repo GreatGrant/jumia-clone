@@ -19,7 +19,7 @@ class _FlashSaleHeaderState extends State<FlashSaleHeader> {
     return Container(
       height: 60,
       width: double.infinity,
-      decoration: const BoxDecoration(color: Color(0xFFE71600)),
+      decoration: BoxDecoration(color: AppColors.red),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

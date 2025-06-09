@@ -1,3 +1,5 @@
+import 'package:jumia_clone/models/product_variant.dart';
+import 'package:jumia_clone/models/review_model.dart';
 import '../core/util/product_tag.dart';
 
 class ProductModel {
@@ -17,6 +19,10 @@ class ProductModel {
   final ProductTag? label;
   final int? ratingCount;
   final double? ratingSum;
+  final List<ReviewModel>? reviews;
+  final bool isFlashSale;
+
+  final List<ProductVariant>? variants;
 
   ProductModel({
     required this.id,
@@ -34,7 +40,26 @@ class ProductModel {
     this.label,
     this.ratingCount,
     this.ratingSum,
+    this.reviews,
+    required this.isFlashSale,
+    this.variants,
   });
+
+  String get stockStatus {
+    final left = itemsLeft ?? 0;
+
+    if (left <= 0) return "Out of stock";
+    if (left <= 3) return "Only $left unit${left == 1 ? '' : 's'} left";
+    if (left <= 10) return "Few units left";
+    return "In stock";
+  }
+
+  double get averageRating {
+    if ((ratingCount ?? 0) == 0) return 0.0;
+    return ((ratingSum ?? 0.0) / (ratingCount ?? 1)).clamp(0, 5);
+  }
+
+  bool get inStock => (itemsLeft ?? 0) > 0;
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
@@ -53,6 +78,13 @@ class ProductModel {
       label: json['label'] != null ? ProductTagSerialization.fromJson(json['label']) : null,
       ratingCount: json['ratingCount'],
       ratingSum: json['ratingSum']?.toDouble(),
+      reviews: json['reviews'] != null
+          ? (json['reviews'] as List).map((r) => ReviewModel.fromJson(r)).toList()
+          : [],
+      isFlashSale: json['isFlashSale'],
+      variants: json['variants'] != null
+          ? (json['variants'] as List).map((v) => ProductVariant.fromJson(v)).toList()
+          : [],
     );
   }
 
@@ -73,6 +105,9 @@ class ProductModel {
       'label': label?.toJson(),
       'ratingCount': ratingCount,
       'ratingSum': ratingSum,
+      'reviews': reviews?.map((r) => r.toJson()).toList(),
+      'isFlashSale': isFlashSale,
+      'variants': variants?.map((v) => v.toJson()).toList(),
     };
   }
 
@@ -92,6 +127,9 @@ class ProductModel {
     ProductTag? label,
     int? ratingCount,
     double? ratingSum,
+    List<ReviewModel>? reviews,
+    bool? isFlashSale,
+    List<ProductVariant>? variants,
   }) {
     return ProductModel(
       id: id ?? this.id,
@@ -109,6 +147,9 @@ class ProductModel {
       label: label ?? this.label,
       ratingCount: ratingCount ?? this.ratingCount,
       ratingSum: ratingSum ?? this.ratingSum,
+      reviews: reviews ?? this.reviews,
+      isFlashSale: isFlashSale ?? this.isFlashSale,
+      variants: variants ?? this.variants,
     );
   }
 }

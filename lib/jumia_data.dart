@@ -28,6 +28,7 @@ class JumiaData {
       ratingSum: 540,
       label: ProductTag.payOnDelivery(),
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: true
     ),
     ProductModel(
       id: '2',
@@ -47,6 +48,7 @@ class JumiaData {
       ratingSum: 357,
       label: ProductTag.nonReturnable(),
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: true
     ),
     ProductModel(
       id: '3',
@@ -65,6 +67,7 @@ class JumiaData {
       ratingCount: 200,
       ratingSum: 940,
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: true
     ),
     ProductModel(
       id: '4',
@@ -82,6 +85,7 @@ class JumiaData {
       ratingSum: 645,
       label: ProductTag.payOnDelivery(),
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: true
     ),
   ];
 
@@ -103,6 +107,7 @@ class JumiaData {
       ratingSum: 540,
       label: ProductTag.payOnDelivery(),
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: false
     ),
     ProductModel(
       id: '2',
@@ -123,6 +128,7 @@ class JumiaData {
       ratingSum: 357,
       label: ProductTag.nonReturnable(),
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: false
     ),
     ProductModel(
       id: '3',
@@ -142,6 +148,7 @@ class JumiaData {
       ratingCount: 200,
       ratingSum: 940,
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: false
     ),
     ProductModel(
       id: '4',
@@ -160,6 +167,7 @@ class JumiaData {
       ratingSum: 645,
       label: ProductTag.payOnDelivery(),
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: false
     ),
   ];
 
@@ -181,6 +189,7 @@ class JumiaData {
       ratingSum: 645,
       label: ProductTag.payOnDelivery(),
       brandId: 'Hilda\'s Kitchen',
+        isFlashSale: false
     ),
     ProductModel(
       id: '4',
@@ -191,6 +200,7 @@ class JumiaData {
       imageUrls: ['https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop'],
       rating: 4.3,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '204',
@@ -204,6 +214,7 @@ class JumiaData {
       rating: 4.6,
       itemsLeft: 5,
       brandId: 'Havit',
+        isFlashSale: false
     ),
 
     ProductModel(
@@ -220,6 +231,7 @@ class JumiaData {
       rating: 4.3,
       itemsLeft: 15,
       brandId: 'Havit',
+        isFlashSale: false
     ),
   ];
 
@@ -233,6 +245,7 @@ class JumiaData {
       imageUrls: ['https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop'],
       rating: 4.5,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '2',
@@ -246,6 +259,7 @@ class JumiaData {
       rating: 4.2,
       itemsLeft: 25,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '3',
@@ -259,6 +273,7 @@ class JumiaData {
       rating: 4.7,
       itemsLeft: 12,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '4',
@@ -269,6 +284,7 @@ class JumiaData {
       imageUrls: ['https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop'],
       rating: 4.3,
       brandId: 'Havit',
+        isFlashSale: false
     ),
   ];
 
@@ -287,6 +303,7 @@ class JumiaData {
       rating: 4.8,
       itemsLeft: 14,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '102',
@@ -299,6 +316,7 @@ class JumiaData {
       ],
       rating: 4.6,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '103',
@@ -314,6 +332,7 @@ class JumiaData {
       rating: 4.5,
       itemsLeft: 8,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '104',
@@ -327,6 +346,7 @@ class JumiaData {
       rating: 4.4,
       itemsLeft: 20,
       brandId: 'Havit',
+        isFlashSale: false
     ),
   ];
 
@@ -345,6 +365,7 @@ class JumiaData {
       rating: 4.7,
       itemsLeft: 10,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '202',
@@ -357,6 +378,7 @@ class JumiaData {
       ],
       rating: 4.5,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '203',
@@ -372,6 +394,7 @@ class JumiaData {
       rating: 4.3,
       itemsLeft: 15,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '204',
@@ -385,6 +408,7 @@ class JumiaData {
       rating: 4.6,
       itemsLeft: 5,
       brandId: 'Havit',
+        isFlashSale: false
     ),
   ];
 
@@ -403,6 +427,7 @@ class JumiaData {
       rating: 4.6,
       itemsLeft: 25,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '302',
@@ -415,6 +440,7 @@ class JumiaData {
       ],
       rating: 4.5,
       brandId: 'Nivea',
+        isFlashSale: false
     ),
     ProductModel(
       id: '303',
@@ -430,6 +456,7 @@ class JumiaData {
       rating: 4.7,
       itemsLeft: 15,
       brandId: 'Nivea',
+        isFlashSale: false
     ),
     ProductModel(
       id: '304',
@@ -443,6 +470,7 @@ class JumiaData {
       rating: 4.4,
       itemsLeft: 20,
       brandId: 'Nivea',
+        isFlashSale: false
     ),
   ];
 
@@ -461,6 +489,7 @@ class JumiaData {
       rating: 4.7,
       itemsLeft: 12,
       brandId: 'Transsion',
+        isFlashSale: false
     ),
     ProductModel(
       id: '402',
@@ -473,6 +502,7 @@ class JumiaData {
       ],
       rating: 4.6,
       brandId: 'Transsion',
+        isFlashSale: false
     ),
     ProductModel(
       id: '403',
@@ -488,6 +518,7 @@ class JumiaData {
       rating: 4.6,
       itemsLeft: 25,
       brandId: 'Nivea',
+        isFlashSale: false
     ),
     ProductModel(
       id: '404',
@@ -501,6 +532,7 @@ class JumiaData {
       rating: 4.4,
       itemsLeft: 30,
       brandId: 'Paul',
+        isFlashSale: false
     ),
   ];
 }

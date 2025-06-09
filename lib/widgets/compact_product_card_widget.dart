@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import '../theme/colors.dart'; // Assuming AppColors is defined here
-import '../models/product_model.dart'; // Assuming ProductModel is defined here
+import '../models/product_model.dart';
+import 'discount_badge.dart'; // Assuming ProductModel is defined here
 
 class CompactProductCardWidget extends StatelessWidget {
   final ProductModel item;
@@ -133,27 +134,7 @@ class CompactProductCardWidget extends StatelessWidget {
             Positioned(
               top: -10,
               right: -10,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: AppColors.orangeFaint,
-                  borderRadius: BorderRadius.circular(4),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.orangeFaint,
-                      offset: const Offset(1, 1),
-                    ),
-                  ],
-                ),
-                child: Text(
-                  '-${item.discountPercentage!.toStringAsFixed(0)}%',
-                  style: const TextStyle(
-                    color: AppColors.primary,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ),
+              child: DiscountBadge(discount: item.discountPercentage!)
             ),
           if (showLabel && item.label != null)
             Positioned(

@@ -26,6 +26,7 @@ class _CartScreenState extends State<CartScreen> {
       imageUrls: ['https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop'],
       rating: 4.5,
       brandId: "Havit",
+      isFlashSale: false
     ),
     ProductModel(
       id: '2',
@@ -39,6 +40,7 @@ class _CartScreenState extends State<CartScreen> {
       rating: 4.2,
       itemsLeft: 25,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '3',
@@ -52,6 +54,7 @@ class _CartScreenState extends State<CartScreen> {
       rating: 4.7,
       itemsLeft: 12,
       brandId: 'Havit',
+        isFlashSale: false
     ),
     ProductModel(
       id: '4',
@@ -61,7 +64,8 @@ class _CartScreenState extends State<CartScreen> {
       price: 35000,
       imageUrls: ['https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop'],
       rating: 4.3,
-        brandId: 'Havit'
+      brandId: 'Havit',
+      isFlashSale: false
     ),
   ];
 
