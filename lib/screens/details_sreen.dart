@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jumia_clone/models/product_model.dart';
+import 'package:jumia_clone/widgets/strike_through_price.dart';
 
 import '../core/util/format_time.dart';
 import '../theme/colors.dart';
@@ -371,23 +372,20 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           ),
                           if (widget.product.originalPrice != null) ...[
                             const SizedBox(width: 12),
-                            Text(
-                              '₦ ${widget.product.originalPrice!.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey[600],
-                                decoration: TextDecoration.lineThrough,
-                              ),
-                            ),
+                            StrikethroughPrice(price: widget.product.originalPrice!, fontSize: 14,),
                             const SizedBox(width: 8),
                             if (widget.product.discountPercentage != null)
                               DiscountBadge(discount: widget.product.discountPercentage!)
                           ],
                         ],
                       ),
-                      const SizedBox(height: 16),
                     ],
-
+                    Text(widget.product.stockStatus, style: TextStyle(
+                      color: AppColors.grey600,
+                      fontSize: 12
+                    ),
+                    ),
+                    const SizedBox(height: 16),
                     // Description
                     Text(
                       'Description',
@@ -407,28 +405,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ),
 
                     // Rating Section (Optional)
-                    if (widget.product.rating != null) ...[
-                      const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          Text(
-                            'Rating: ${widget.product.rating!.toStringAsFixed(1)}',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black87,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            '(${widget.product.ratingCount ?? 0} reviews)',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[600],
-                            ),
-                          ),
-                        ],
-                      ),
                     ],
                   ],
                 ),

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:jumia_clone/widgets/strike_through_price.dart';
 import '../theme/colors.dart'; // Assuming AppColors is defined here
 import '../models/product_model.dart';
 import 'discount_badge.dart'; // Assuming ProductModel is defined here
@@ -260,15 +261,7 @@ class CompactProductCardWidget extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 8),
-                          Text(
-                            '₦${NumberFormat('#,###').format(item.originalPrice)}',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: AppColors.grey,
-                              decoration: TextDecoration.lineThrough,
-                              decorationColor: AppColors.grey600,
-                            ),
-                          ),
+                          StrikethroughPrice(price: item.originalPrice!)
                         ],
                       )
                     else
