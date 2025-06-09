@@ -10,6 +10,7 @@ import '../core/util/format_time.dart';
 import '../theme/colors.dart';
 import '../widgets/discount_badge.dart';
 import '../widgets/persistent_footer_widget.dart';
+import '../widgets/products_rating_display.dart';
 
 class DetailsScreen extends StatefulWidget {
   final ProductModel product;
@@ -405,7 +406,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ),
 
                     // Rating Section (Optional)
-                    ],
+                    if (widget.product.rating != null) ...[
+                      const SizedBox(height: 16),
+                      ProductRatingDisplay(
+                        rating: widget.product.rating!,
+                        ratingCount: widget.product.ratingCount ?? 0,
+                      ),
+
+                  ],
                   ],
                 ),
               ),
