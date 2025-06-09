@@ -8,8 +8,10 @@ import 'package:jumia_clone/widgets/strike_through_price.dart';
 
 import '../core/util/format_time.dart';
 import '../theme/colors.dart';
+import '../widgets/custom_progress_bar.dart';
 import '../widgets/discount_badge.dart';
 import '../widgets/persistent_footer_widget.dart';
+import '../widgets/product_label_badge.dart';
 import '../widgets/products_rating_display.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -34,7 +36,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Assume isFlashSale based on discountPercentage or label for demo purposes
     bool isFlashSale = widget.product.isFlashSale;
 
     return Scaffold(
@@ -172,26 +173,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
             Container(
               color: AppColors.surface,
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (widget.product.label != null)
-                      Container(
-                        padding: widget.product.label!.padding,
-                        decoration: BoxDecoration(
-                          color: widget.product.label!.backgroundColor,
-                          borderRadius: widget.product.label!.borderRadius,
-                        ),
-                        child: Text(
-                          widget.product.label!.label,
-                          style: TextStyle(
-                            color: widget.product.label!.textColor,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                      ProductLabelBadge(label: widget.product.label!),
                     const SizedBox(height: 8),
                     // Product Title
                     Text(
@@ -205,7 +192,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ),
                     const SizedBox(height: 8),
 
-                    // Brand (placeholder, as brand is not in ProductModel)
+                    // Brand
                     RichText(
                       text: TextSpan(
                         children: [
@@ -218,7 +205,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             style: TextStyle(
                               color: AppColors.deepBlue,
                               fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           TextSpan(
@@ -229,12 +216,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           TextSpan(
                             text:
                             'Similar products from ${widget.product.brandId}',
-                            style: TextStyle(color: AppColors.deepBlue, fontSize: 12),
+                            style: TextStyle(color: AppColors.deepBlue, fontSize: 12, fontWeight: FontWeight.w600,),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 12),
 
                     // Flash Sales (conditional)
                     if (isFlashSale) ...[
@@ -246,113 +233,143 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         ),
                         child: Column(
                           children: [
-                            // Flash Sale Header
+                            // Entire Flash Sale Section Container
                             Container(
-                              padding: const EdgeInsets.all(12),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: const [
-                                      Icon(Icons.flash_on,
-                                          color: Colors.yellow, size: 20),
-                                      SizedBox(width: 4),
-                                      Text(
-                                        'Flash Sales',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    'Time Left ${formatTime(_timeLeft)}',
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            // Price Section
-                            Container(
-                              width: double.infinity,
-                              padding: const EdgeInsets.all(12),
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(8),
-                                  bottomRight: Radius.circular(8),
-                                ),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.red, width: 1.5),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        '₦ ${widget.product.price.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
-                                        style: const TextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.w900,
-                                          color: Colors.black87,
-                                        ),
+                                  // Flash Sale Header
+                                  Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: const BoxDecoration(
+                                      color: AppColors.red,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(4),
+                                        topRight: Radius.circular(4),
                                       ),
-                                      if (widget.product.originalPrice != null) ...[
-                                        const SizedBox(width: 12),
-                                        Text(
-                                          '₦ ${widget.product.originalPrice!.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.grey[600],
-                                            decoration: TextDecoration.lineThrough,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(right: 8),
+                                            child: Transform(
+                                              alignment: Alignment.center,
+                                              transform:  Matrix4.identity()..scale(-1.0, 1.0),
+                                              child: const Icon(
+                                                Icons.local_offer,
+                                                color: AppColors.primary,
+                                                size: 20,
+                                              ),
+                                            ),
                                           ),
+                                            const SizedBox(width: 4),
+                                            const Text(
+                                              'Flash Sales',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        const SizedBox(width: 8),
                                         Text(
-                                          '-${widget.product.discountPercentage?.toStringAsFixed(0)}%',
-                                          style: TextStyle(
+                                          'Time Left ${formatTime(_timeLeft)}',
+                                          style: const TextStyle(
+                                            color: Colors.white,
                                             fontSize: 14,
-                                            color: Colors.orange[600],
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ],
-                                    ],
+                                    ),
                                   ),
-                                  if (widget.product.itemsLeft != null) ...[
-                                    const SizedBox(height: 8),
-                                    Row(
+
+                                  // Price Section
+                                  Container(
+                                    width: double.infinity,
+                                    padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          '${widget.product.itemsLeft} items left',
-                                          style: const TextStyle(
-                                            fontSize: 14,
-                                            color: Colors.black87,
-                                          ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              '₦ ${widget.product.price.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
+                                              style: const TextStyle(
+                                                fontSize: 24,
+                                                fontWeight: FontWeight.w900,
+                                                color: Colors.black87,
+                                              ),
+                                            ),
+                                            if (widget.product.originalPrice != null) ...[
+                                              const SizedBox(width: 12),
+                                              Text(
+                                                '₦ ${widget.product.originalPrice!.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (m) => '${m[1]},')}',
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Colors.grey[600],
+                                                  decoration: TextDecoration.lineThrough,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 8),
+                                              Text(
+                                                '-${widget.product.discountPercentage?.toStringAsFixed(0)}%',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.orange[600],
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ],
+                                          ],
                                         ),
-                                        const SizedBox(width: 12),
-                                        Expanded(
-                                          child: LinearProgressIndicator(
-                                            value: widget.product.itemsLeft! /
-                                                (widget.product.totalUnits ?? 100),
-                                            backgroundColor: Colors.grey[300],
-                                            valueColor:
-                                            const AlwaysStoppedAnimation<Color>(
-                                                Colors.orange),
-                                            minHeight: 6,
+                                        if (widget.product.itemsLeft != null) ...[
+                                          const SizedBox(height: 8),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '${widget.product.itemsLeft} items left',
+                                                style: const TextStyle(
+                                                  fontSize: 12,
+                                                  color: AppColors.grey,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 12),
+                                              Expanded(
+                                                child: CustomProgressBar(
+                                                  progressValue: widget.product.itemsLeft!.toDouble(),
+                                                  totalValue: widget.product.totalUnits!.toDouble(),
+                                                  progressColor: Colors.red,
+                                                  backgroundColor: Colors.grey[200]!,
+                                                  height: 8,
+                                                  borderRadius: 4,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ),
+                                        ],
                                       ],
                                     ),
-                                  ],
+                                  ),
                                 ],
                               ),
                             ),
+
                           ],
                         ),
                       ),
@@ -381,33 +398,41 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         ],
                       ),
                     ],
-                    Text(widget.product.stockStatus, style: TextStyle(
-                      color: AppColors.grey600,
-                      fontSize: 12
-                    ),
-                    ),
-                    const SizedBox(height: 16),
-                    // Description
-                    Text(
-                      'Description',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[800],
+                    if (!isFlashSale) ...[
+                      Text(
+                        widget.product.stockStatus,
+                        style: TextStyle(
+                          color: AppColors.grey,
+                          fontSize: 12,
+                        ),
                       ),
+                      const SizedBox(height: 12),
+                    ],
+                    RichText(
+                        text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '+ shipping from ₦${widget.product.shippingFee?.toStringAsFixed(0)} to LEKKI-AJAH (SANGOTEDO) ',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              TextSpan(
+                                text: 'See options',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: AppColors.deepBlue,
+                                  fontWeight: FontWeight.w600
+                                ),
+                              ),
+                            ]
+                        )
                     ),
-                    const SizedBox(height: 6),
-                    Text(
-                      widget.product.description ?? 'No description available',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                      ),
-                    ),
-
                     // Rating Section (Optional)
                     if (widget.product.rating != null) ...[
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 4),
                       ProductRatingDisplay(
                         rating: widget.product.rating!,
                         ratingCount: widget.product.ratingCount ?? 0,

@@ -13,10 +13,10 @@ class DiscountBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
       decoration: BoxDecoration(
         color: AppColors.orangeFaint,
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(2),
         boxShadow: [
           BoxShadow(
             color: AppColors.orangeFaint,

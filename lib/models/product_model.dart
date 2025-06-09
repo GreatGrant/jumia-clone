@@ -23,6 +23,7 @@ class ProductModel {
   final bool isFlashSale;
 
   final List<ProductVariant>? variants;
+  final double? shippingFee;
 
   ProductModel({
     required this.id,
@@ -43,6 +44,7 @@ class ProductModel {
     this.reviews,
     required this.isFlashSale,
     this.variants,
+    this.shippingFee = 750,
   });
 
   String get stockStatus {
@@ -85,6 +87,7 @@ class ProductModel {
       variants: json['variants'] != null
           ? (json['variants'] as List).map((v) => ProductVariant.fromJson(v)).toList()
           : [],
+      shippingFee: json['shippingFee']?.toDouble(),
     );
   }
 
@@ -108,6 +111,7 @@ class ProductModel {
       'reviews': reviews?.map((r) => r.toJson()).toList(),
       'isFlashSale': isFlashSale,
       'variants': variants?.map((v) => v.toJson()).toList(),
+      'shippingFee': shippingFee,
     };
   }
 
@@ -130,6 +134,7 @@ class ProductModel {
     List<ReviewModel>? reviews,
     bool? isFlashSale,
     List<ProductVariant>? variants,
+    double? shippingFee,
   }) {
     return ProductModel(
       id: id ?? this.id,
@@ -150,6 +155,7 @@ class ProductModel {
       reviews: reviews ?? this.reviews,
       isFlashSale: isFlashSale ?? this.isFlashSale,
       variants: variants ?? this.variants,
+      shippingFee: shippingFee ?? this.shippingFee,
     );
   }
 }

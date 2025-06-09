@@ -427,6 +427,7 @@ class JumiaData {
       rating: 4.6,
       itemsLeft: 25,
       brandId: 'Havit',
+        label: ProductTag.officialStore(),
         isFlashSale: false
     ),
     ProductModel(

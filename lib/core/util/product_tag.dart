@@ -13,8 +13,8 @@ sealed class ProductTag {
   String get label;
   Color get backgroundColor;
   Color get textColor;
-  EdgeInsetsGeometry get padding => const EdgeInsets.symmetric(horizontal: 8, vertical: 4);
-  BorderRadiusGeometry get borderRadius => BorderRadius.circular(4);
+  EdgeInsetsGeometry get padding => const EdgeInsets.symmetric(horizontal: 4, vertical: 4);
+  BorderRadiusGeometry get borderRadius => BorderRadius.circular(2);
   TextStyle get textStyle => TextStyle(
     color: textColor,
     fontSize: 12,

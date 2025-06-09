@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:jumia_clone/widgets/strike_through_price.dart';
 import '../theme/colors.dart'; // Assuming AppColors is defined here
 import '../models/product_model.dart';
+import 'custom_progress_bar.dart';
 import 'discount_badge.dart'; // Assuming ProductModel is defined here
 
 class CompactProductCardWidget extends StatelessWidget {
@@ -315,17 +316,14 @@ class CompactProductCardWidget extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 4),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: LinearProgressIndicator(
-                          value: item.itemsLeft! / item.totalUnits!,
-                          backgroundColor: Colors.grey[200],
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            AppColors.goldenAmber,
-                          ),
-                          minHeight: 8,
-                        ),
-                      ),
+                      CustomProgressBar(
+                        progressValue: item.itemsLeft!.toDouble(),
+                        totalValue: item.totalUnits!.toDouble(),
+                        progressColor: AppColors.goldenAmber,
+                        backgroundColor: Colors.grey[200]!,
+                        height: 8,
+                        borderRadius: 4,
+                      )
                     ],
                     if (showAddToCart) ...[
                       const SizedBox(height: 12),
