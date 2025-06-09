@@ -292,7 +292,7 @@ class CompactProductCardWidget extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 4),
                         child: Row(
                           children: [
-                            Icon(Icons.star, size: 16, color: Colors.amber),
+                            Icon(Icons.star, size: 16, color: AppColors.goldenAmber),
                             const SizedBox(width: 4),
                             Text(
                               '${item.rating!.toStringAsFixed(1)} (${item.ratingCount})',
