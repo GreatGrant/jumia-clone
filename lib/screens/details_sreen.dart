@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jumia_clone/jumia_data.dart';
 import 'package:jumia_clone/models/product_model.dart';
 import 'package:jumia_clone/widgets/product_details_widget.dart';
 import 'package:jumia_clone/widgets/strike_through_price.dart';
@@ -15,6 +16,7 @@ import '../widgets/flipped_icon_offer.dart';
 import '../widgets/persistent_footer_widget.dart';
 import '../widgets/product_label_badge.dart';
 import '../widgets/products_rating_display.dart';
+import '../widgets/promotions_widget.dart';
 import '../widgets/section_header.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -440,6 +442,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
               ),
             ),
+            SizedBox(height: 12,),
+            PromotionsWidget(promotions: JumiaData.promotions),
             SizedBox(height: 12,),
             ProductDetailsWidget(details: widget.product.productDetails!.keyFeatures!)
           ],

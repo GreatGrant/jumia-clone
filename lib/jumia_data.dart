@@ -1,6 +1,7 @@
 import '../models/product_model.dart';
 import 'core/util/product_tag.dart';
 import 'models/product_details_model.dart';
+import 'models/promotion.dart';
 
 class JumiaData {
   static final List<String> promoImages = [
@@ -1010,6 +1011,30 @@ class JumiaData {
       itemsLeft: 30,
       brandId: 'Paul',
         isFlashSale: false
+    ),
+  ];
+
+  static final promotions = [
+    Promotion(
+      text: "Call 07006000000 To Place Your Order",
+      onTap: () {
+        // Handle phone call
+        print("Calling 07006000000");
+      },
+    ),
+    Promotion(
+      text: "Need extra money? Loan up to N500,000 on the JumiaPay Android app.",
+      onTap: () {
+        // Handle loan navigation
+        print("Navigate to JumiaPay loan");
+      },
+    ),
+    Promotion(
+      text: "Enjoy cheaper shipping fees when you select a PickUp Station at checkout.",
+      onTap: () {
+        // Handle pickup station info
+        print("Show pickup station info");
+      },
     ),
   ];
 }
