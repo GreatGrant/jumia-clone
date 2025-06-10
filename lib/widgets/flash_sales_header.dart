@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jumia_clone/theme/colors.dart';
 
+import 'flipped_icon_offer.dart';
+
 class FlashSaleHeader extends StatefulWidget {
   final String timeLeft; // <-- backend-provided
 
@@ -25,19 +27,11 @@ class _FlashSaleHeaderState extends State<FlashSaleHeader> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Tag Icon
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Transform(
-              alignment: Alignment.center,
-              transform: Matrix4.identity()..scale(-1.0, 1.0),
-              child: Icon(
-                Icons.local_offer,
-                color: AppColors.primary,
-                size: 20,
-              ),
-            ),
+          FlippedOfferIcon(
+            size: 24,
+            baseColor: AppColors.amber,
+            flashColor: AppColors.red,
           ),
-
           // Flash Sales text and timer
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

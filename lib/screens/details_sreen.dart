@@ -4,15 +4,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:jumia_clone/models/product_model.dart';
+import 'package:jumia_clone/widgets/product_details_widget.dart';
 import 'package:jumia_clone/widgets/strike_through_price.dart';
 
 import '../core/util/format_time.dart';
 import '../theme/colors.dart';
 import '../widgets/custom_progress_bar.dart';
 import '../widgets/discount_badge.dart';
+import '../widgets/flipped_icon_offer.dart';
 import '../widgets/persistent_footer_widget.dart';
 import '../widgets/product_label_badge.dart';
 import '../widgets/products_rating_display.dart';
+import '../widgets/section_header.dart';
 
 class DetailsScreen extends StatefulWidget {
   final ProductModel product;
@@ -257,18 +260,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                       children: [
                                         Row(
                                           children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(right: 8),
-                                            child: Transform(
-                                              alignment: Alignment.center,
-                                              transform:  Matrix4.identity()..scale(-1.0, 1.0),
-                                              child: const Icon(
-                                                Icons.local_offer,
-                                                color: AppColors.primary,
-                                                size: 20,
-                                              ),
+                                            FlippedOfferIcon(
+                                              size: 24,
+                                              baseColor: AppColors.amber,
+                                              flashColor: AppColors.red,
                                             ),
-                                          ),
                                             const SizedBox(width: 4),
                                             const Text(
                                               'Flash Sales',
@@ -366,6 +362,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                       ],
                                     ),
                                   ),
+
                                 ],
                               ),
                             ),
@@ -442,8 +439,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   ],
                 ),
               ),
-            )
-
+            ),
+            SizedBox(height: 12,),
+            ProductDetailsWidget(details: widget.product.productDetails!.keyFeatures!)
           ],
         ),
       ),

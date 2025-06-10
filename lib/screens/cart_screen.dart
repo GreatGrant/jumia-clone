@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:jumia_clone/jumia_data.dart';
 import 'package:jumia_clone/models/brand_model.dart';
 
+import '../models/product_details_model.dart';
 import '../models/product_model.dart';
 import '../widgets/no_connection_widget.dart';
 import '../widgets/product_row_widget.dart';
@@ -21,51 +22,115 @@ class _CartScreenState extends State<CartScreen> {
       id: '1',
       isOfficialStore: true,
       title: 'Logitech H390 USB Headset',
-      description: 'High-quality USB headset with noise-canceling microphone',
+      productDetails: ProductDetails(
+        description: 'High-quality USB headset with noise-canceling microphone',
+        keyFeatures: [
+          'Noise-canceling microphone',
+          'USB-A connection',
+          'In-line controls',
+          'Adjustable headband',
+        ],
+        specification: {
+          'Connectivity': 'Wired (USB)',
+          'Microphone': 'Yes, noise-canceling',
+          'Weight': '197g',
+          'Compatibility': 'Windows, macOS',
+        },
+      ),
       price: 42900,
-      imageUrls: ['https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop'],
+      imageUrls: [
+        'https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop',
+      ],
       rating: 4.5,
       brandId: "Havit",
-      isFlashSale: false
+      isFlashSale: false,
     ),
     ProductModel(
       id: '2',
       isOfficialStore: true,
       title: 'Havit PC Gaming Cursor',
-      description: 'Gaming headset with RGB lighting and surround sound',
+      productDetails: ProductDetails(
+        description: 'Gaming headset with RGB lighting and surround sound',
+        keyFeatures: [
+          '7.1 surround sound',
+          'RGB lighting',
+          'Comfortable ear cushions',
+          'Built-in mic',
+        ],
+        specification: {
+          'Connectivity': 'Wired (3.5mm/USB)',
+          'Lighting': 'RGB',
+          'Microphone': 'Built-in',
+          'Compatibility': 'PC, PS4, Xbox',
+        },
+      ),
       price: 15000,
       originalPrice: 25000,
       discountPercentage: 40,
-      imageUrls: ['https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=300&h=300&fit=crop'],
+      imageUrls: [
+        'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=300&h=300&fit=crop',
+      ],
       rating: 4.2,
       itemsLeft: 25,
       brandId: 'Havit',
-        isFlashSale: false
+      isFlashSale: false,
     ),
     ProductModel(
       id: '3',
       isOfficialStore: false,
       title: 'Wireless Gaming Mouse',
-      description: 'High precision wireless gaming mouse with RGB',
+      productDetails: ProductDetails(
+        description: 'High precision wireless gaming mouse with RGB',
+        keyFeatures: [
+          '2.4GHz wireless connection',
+          'Adjustable DPI up to 16000',
+          'Ergonomic design',
+          'RGB lighting',
+        ],
+        specification: {
+          'Connectivity': 'Wireless',
+          'DPI Range': '800–16000',
+          'Battery Life': 'Up to 50 hours',
+          'Buttons': '6 programmable',
+        },
+      ),
       price: 18500,
       originalPrice: 22000,
       discountPercentage: 16,
-      imageUrls: ['https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&h=300&fit=crop'],
+      imageUrls: [
+        'https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&h=300&fit=crop',
+      ],
       rating: 4.7,
       itemsLeft: 12,
       brandId: 'Havit',
-        isFlashSale: false
+      isFlashSale: false,
     ),
     ProductModel(
       id: '4',
       isOfficialStore: false,
       title: 'Mechanical Keyboard RGB',
-      description: 'Gaming keyboard with mechanical switches',
+      productDetails: ProductDetails(
+        description: 'Gaming keyboard with mechanical switches',
+        keyFeatures: [
+          'Tactile mechanical keys',
+          'Customizable RGB lighting',
+          'Anti-ghosting technology',
+          'Durable metal frame',
+        ],
+        specification: {
+          'Switch Type': 'Mechanical',
+          'Backlight': 'RGB',
+          'Key Rollover': 'N-key',
+          'Connection': 'Wired (USB)',
+        },
+      ),
       price: 35000,
-      imageUrls: ['https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop'],
+      imageUrls: [
+        'https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop',
+      ],
       rating: 4.3,
       brandId: 'Havit',
-      isFlashSale: false
+      isFlashSale: false,
     ),
   ];
 

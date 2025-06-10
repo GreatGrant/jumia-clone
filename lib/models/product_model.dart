@@ -1,3 +1,4 @@
+import 'package:jumia_clone/models/product_details_model.dart';
 import 'package:jumia_clone/models/product_variant.dart';
 import 'package:jumia_clone/models/review_model.dart';
 import '../core/util/product_tag.dart';
@@ -5,7 +6,7 @@ import '../core/util/product_tag.dart';
 class ProductModel {
   final String id;
   final String title;
-  final String? description;
+  final ProductDetails? productDetails;
   final List<String> imageUrls;
   final double price;
   final String brandId;
@@ -28,7 +29,7 @@ class ProductModel {
   ProductModel({
     required this.id,
     required this.title,
-    this.description,
+    this.productDetails,
     required this.imageUrls,
     required this.price,
     required this.brandId,
@@ -67,7 +68,9 @@ class ProductModel {
     return ProductModel(
       id: json['id'],
       title: json['title'] ?? '',
-      description: json['description'],
+      productDetails: json['productDetails'] != null
+          ? ProductDetails.fromJson(json['productDetails'])
+          : null,
       imageUrls: List<String>.from(json['imageUrls'] ?? []),
       price: (json['price'] as num).toDouble(),
       brandId: json['brandId'],
@@ -95,7 +98,7 @@ class ProductModel {
     return {
       'id': id,
       'title': title,
-      'description': description,
+      'productDetails': productDetails?.toJson(),
       'imageUrls': imageUrls,
       'price': price,
       'brandId': brandId,
@@ -118,7 +121,7 @@ class ProductModel {
   ProductModel copyWith({
     String? id,
     String? title,
-    String? description,
+    ProductDetails? productDetails,
     List<String>? imageUrls,
     double? price,
     String? brandId,
@@ -139,7 +142,7 @@ class ProductModel {
     return ProductModel(
       id: id ?? this.id,
       title: title ?? this.title,
-      description: description ?? this.description,
+      productDetails: productDetails ?? this.productDetails,
       imageUrls: imageUrls ?? this.imageUrls,
       price: price ?? this.price,
       brandId: brandId ?? this.brandId,
