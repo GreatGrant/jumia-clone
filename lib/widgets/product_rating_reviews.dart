@@ -25,6 +25,9 @@ class ProductRatingReviews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final hasReviews = reviews.isNotEmpty;
+    final displayReviews = reviews.take(4).toList();
+
     return Container(
       color: AppColors.surface,
       child: Padding(
@@ -32,7 +35,9 @@ class ProductRatingReviews extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProductSectionHeader(title: 'Product Rating & Reviews'),
+            ProductSectionHeader(
+              title: 'Product Rating & Reviews',
+            ),
             Row(
               children: [
                 Container(
@@ -41,7 +46,7 @@ class ProductRatingReviews extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                     border: Border.all(
                       color: AppColors.goldenAmber,
-                      width: 0.5, // Thickness of the outline
+                      width: 0.5,
                     ),
                   ),
                   child: Text.rich(
@@ -74,15 +79,27 @@ class ProductRatingReviews extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 2),
-            Divider(),
+
+            const SizedBox(height: 2),
+            const Divider(),
             const SizedBox(height: 16),
-            ...reviews.map((review) => ReviewItem(review: review)),
+
+            if (hasReviews)
+              ...displayReviews.map((review) => ReviewItem(review: review)).toList()
+            else
+              Center(
+                child: Text(
+                  'No reviews yet',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: AppColors.grey500,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
           ],
         ),
       ),
     );
   }
-
-
-  }
+}
