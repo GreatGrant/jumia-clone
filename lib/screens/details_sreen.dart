@@ -15,6 +15,7 @@ import '../widgets/discount_badge.dart';
 import '../widgets/flipped_icon_offer.dart';
 import '../widgets/persistent_footer_widget.dart';
 import '../widgets/product_label_badge.dart';
+import '../widgets/product_rating_reviews.dart';
 import '../widgets/products_rating_display.dart';
 import '../widgets/promotions_widget.dart';
 import '../widgets/section_header.dart';
@@ -445,7 +446,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
             SizedBox(height: 12,),
             PromotionsWidget(promotions: JumiaData.promotions),
             SizedBox(height: 12,),
-            ProductDetailsWidget(details: widget.product.productDetails!.keyFeatures!)
+            ProductDetailsWidget(details: widget.product.productDetails!.keyFeatures!),
+            SizedBox(height: 12,),
+            ProductRatingReviews(
+              overallRating: widget.product.rating!,
+              totalRatings: widget.product.ratingCount!,
+              reviews: widget.product.reviews!,
+              onViewAllReviews: () {
+                // Handle view all reviews action
+                print('View all reviews tapped');
+              },
+            ),
           ],
         ),
       ),

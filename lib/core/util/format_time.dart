@@ -5,3 +5,7 @@ String formatTime(Duration duration) {
   final seconds = twoDigits(duration.inSeconds.remainder(60));
   return '$hours:$minutes:$seconds';
 }
+
+String formatDate(DateTime date) {
+  return '${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}';
+}

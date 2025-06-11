@@ -1,3 +1,5 @@
+import 'package:jumia_clone/models/review_model.dart';
+
 import '../models/product_model.dart';
 import 'core/util/product_tag.dart';
 import 'models/product_details_model.dart';
@@ -46,7 +48,45 @@ class JumiaData {
         ratingSum: 540,
         label: ProductTag.payOnDelivery(),
         brandId: 'Hilda\'s Kitchen',
-        isFlashSale: true
+        isFlashSale: true,
+      reviews: [
+        ReviewModel(
+          userId: '1',
+          title: 'Very good',
+          userName: 'Edirin',
+          comment: 'Good sound, balanced bass, long lasting. Good music sound. Great for calls too',
+          rating: 5,
+          createdAt: DateTime(2025, 6, 10),
+          isVerifiedPurchase: true,
+        ),
+        ReviewModel(
+          userId: '2',
+          title: 'Not bad',
+          userName: 'Ada',
+          comment: 'Battery is okay. Sounds decent. A bit uncomfortable after long use.',
+          rating: 3,
+          createdAt: DateTime(2025, 6, 9),
+          isVerifiedPurchase: true,
+        ),
+        ReviewModel(
+          userId: '3',
+          title: 'Disappointed',
+          userName: 'Musa',
+          comment: 'One side stopped working after a week. Not worth it.',
+          rating: 2,
+          createdAt: DateTime(2025, 6, 8),
+          isVerifiedPurchase: false,
+        ),
+        ReviewModel(
+          userId: '4',
+          title: 'Excellent quality',
+          userName: 'Bola',
+          comment: 'Very clear audio. Great mic. I use it daily for work calls.',
+          rating: 5,
+          createdAt: DateTime(2025, 6, 7),
+          isVerifiedPurchase: true,
+        ),
+      ]
     ),
     ProductModel(
         id: '2',
@@ -82,7 +122,8 @@ class JumiaData {
         ratingSum: 357,
         label: ProductTag.nonReturnable(),
         brandId: 'Hilda\'s Kitchen',
-        isFlashSale: true
+        isFlashSale: true,
+
     ),
     ProductModel(
         id: '3',
@@ -151,7 +192,45 @@ class JumiaData {
         ratingSum: 645,
         label: ProductTag.payOnDelivery(),
         brandId: 'Hilda\'s Kitchen',
-        isFlashSale: true
+        isFlashSale: true,
+        reviews: [
+          ReviewModel(
+            userId: '1',
+            title: 'Very good',
+            userName: 'Edirin',
+            comment: 'Good sound, balanced bass, long lasting. Good music sound. Great for calls too',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 10),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '2',
+            title: 'Not bad',
+            userName: 'Ada',
+            comment: 'Battery is okay. Sounds decent. A bit uncomfortable after long use.',
+            rating: 3,
+            createdAt: DateTime(2025, 6, 9),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '3',
+            title: 'Disappointed',
+            userName: 'Musa',
+            comment: 'One side stopped working after a week. Not worth it.',
+            rating: 2,
+            createdAt: DateTime(2025, 6, 8),
+            isVerifiedPurchase: false,
+          ),
+          ReviewModel(
+            userId: '4',
+            title: 'Excellent quality',
+            userName: 'Bola',
+            comment: 'Very clear audio. Great mic. I use it daily for work calls.',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 7),
+            isVerifiedPurchase: true,
+          ),
+        ]
     ),
   ];
 
@@ -182,7 +261,45 @@ class JumiaData {
         imageUrls: ['https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop'],
         rating: 4.5,
         brandId: 'Logitech',
-        isFlashSale: false
+        isFlashSale: false,
+        reviews: [
+          ReviewModel(
+            userId: '1',
+            title: 'Very good',
+            userName: 'Edirin',
+            comment: 'Good sound, balanced bass, long lasting. Good music sound. Great for calls too',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 10),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '2',
+            title: 'Not bad',
+            userName: 'Ada',
+            comment: 'Battery is okay. Sounds decent. A bit uncomfortable after long use.',
+            rating: 3,
+            createdAt: DateTime(2025, 6, 9),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '3',
+            title: 'Disappointed',
+            userName: 'Musa',
+            comment: 'One side stopped working after a week. Not worth it.',
+            rating: 2,
+            createdAt: DateTime(2025, 6, 8),
+            isVerifiedPurchase: false,
+          ),
+          ReviewModel(
+            userId: '4',
+            title: 'Excellent quality',
+            userName: 'Bola',
+            comment: 'Very clear audio. Great mic. I use it daily for work calls.',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 7),
+            isVerifiedPurchase: true,
+          ),
+        ]
     ),
     ProductModel(
         id: '2',
@@ -213,7 +330,46 @@ class JumiaData {
         rating: 4.2,
         itemsLeft: 25,
         brandId: 'Havit',
-        isFlashSale: false
+        isFlashSale: false,
+        reviews: [
+          ReviewModel(
+            userId: '1',
+            title: 'Very good',
+            userName: 'Edirin',
+            comment: 'Good sound, balanced bass, long lasting. Good music sound. Great for calls too',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 10),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '2',
+            title: 'Not bad',
+            userName: 'Ada',
+            comment: 'Battery is okay. Sounds decent. A bit uncomfortable after long use.',
+            rating: 3,
+            createdAt: DateTime(2025, 6, 9),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '3',
+            title: 'Disappointed',
+            userName: 'Musa',
+            comment: 'One side stopped working after a week. Not worth it.',
+            rating: 2,
+            createdAt: DateTime(2025, 6, 8),
+            isVerifiedPurchase: false,
+          ),
+          ReviewModel(
+            userId: '4',
+            title: 'Excellent quality',
+            userName: 'Bola',
+            comment: 'Very clear audio. Great mic. I use it daily for work calls.',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 7),
+            isVerifiedPurchase: true,
+          ),
+        ]
+
     ),
     ProductModel(
         id: '3',
@@ -244,7 +400,45 @@ class JumiaData {
         rating: 4.7,
         itemsLeft: 12,
         brandId: 'Havit',
-        isFlashSale: false
+        isFlashSale: false,
+        reviews: [
+          ReviewModel(
+            userId: '1',
+            title: 'Very good',
+            userName: 'Edirin',
+            comment: 'Good sound, balanced bass, long lasting. Good music sound. Great for calls too',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 10),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '2',
+            title: 'Not bad',
+            userName: 'Ada',
+            comment: 'Battery is okay. Sounds decent. A bit uncomfortable after long use.',
+            rating: 3,
+            createdAt: DateTime(2025, 6, 9),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '3',
+            title: 'Disappointed',
+            userName: 'Musa',
+            comment: 'One side stopped working after a week. Not worth it.',
+            rating: 2,
+            createdAt: DateTime(2025, 6, 8),
+            isVerifiedPurchase: false,
+          ),
+          ReviewModel(
+            userId: '4',
+            title: 'Excellent quality',
+            userName: 'Bola',
+            comment: 'Very clear audio. Great mic. I use it daily for work calls.',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 7),
+            isVerifiedPurchase: true,
+          ),
+        ]
     ),
     ProductModel(
         id: '4',
@@ -272,7 +466,45 @@ class JumiaData {
         imageUrls: ['https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=300&h=300&fit=crop'],
         rating: 4.3,
         brandId: 'Havit',
-        isFlashSale: false
+        isFlashSale: false,
+        reviews: [
+          ReviewModel(
+            userId: '1',
+            title: 'Very good',
+            userName: 'Edirin',
+            comment: 'Good sound, balanced bass, long lasting. Good music sound. Great for calls too',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 10),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '2',
+            title: 'Not bad',
+            userName: 'Ada',
+            comment: 'Battery is okay. Sounds decent. A bit uncomfortable after long use.',
+            rating: 3,
+            createdAt: DateTime(2025, 6, 9),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '3',
+            title: 'Disappointed',
+            userName: 'Musa',
+            comment: 'One side stopped working after a week. Not worth it.',
+            rating: 2,
+            createdAt: DateTime(2025, 6, 8),
+            isVerifiedPurchase: false,
+          ),
+          ReviewModel(
+            userId: '4',
+            title: 'Excellent quality',
+            userName: 'Bola',
+            comment: 'Very clear audio. Great mic. I use it daily for work calls.',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 7),
+            isVerifiedPurchase: true,
+          ),
+        ]
     ),
   ];
 
