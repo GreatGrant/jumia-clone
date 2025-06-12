@@ -2,6 +2,8 @@ import 'package:jumia_clone/models/review_model.dart';
 
 import '../models/product_model.dart';
 import 'core/util/product_tag.dart';
+import 'models/delivery_option.dart';
+import 'models/location_data.dart';
 import 'models/product_details_model.dart';
 import 'models/promotion.dart';
 
@@ -1269,4 +1271,60 @@ class JumiaData {
       },
     ),
   ];
+
+  static final sampleLocations = [
+    LocationData(
+      name: 'Lagos',
+      subregions: [
+        'LEKKI-AJAH (SANGOTEDO)',
+        'IKEJA',
+        'VICTORIA ISLAND',
+        'MAINLAND',
+        'SURULERE',
+      ],
+      deliveryOptions: [
+        DeliveryOption(
+          type: 'Pickup Station',
+          icon: 'pickup',
+          fee: 750,
+          timeframe: '13 June - 17 June',
+          description: 'Ready for pickup between 13 June and 17 June if you place your order within the next 5hrs 36mins',
+        ),
+        DeliveryOption(
+          type: 'Door Delivery',
+          icon: 'delivery',
+          fee: 1710,
+          timeframe: '13 June - 17 June',
+          description: 'Ready for delivery between 13 June and 17 June if you place your order within the next 5hrs 36mins',
+        ),
+      ],
+    ),
+    LocationData(
+      name: 'Abuja',
+      subregions: [
+        'GARKI',
+        'WUSE',
+        'MAITAMA',
+        'ASOKORO',
+        'GWARINPA',
+      ],
+      deliveryOptions: [
+        DeliveryOption(
+          type: 'Pickup Station',
+          icon: 'pickup',
+          fee: 650,
+          timeframe: '14 June - 18 June',
+          description: 'Ready for pickup between 14 June and 18 June if you place your order within the next 5hrs 36mins',
+        ),
+        DeliveryOption(
+          type: 'Door Delivery',
+          icon: 'delivery',
+          fee: 1500,
+          timeframe: '14 June - 18 June',
+          description: 'Ready for delivery between 14 June and 18 June if you place your order within the next 5hrs 36mins',
+        ),
+      ],
+    ),
+  ];
+
 }

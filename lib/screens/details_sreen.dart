@@ -11,6 +11,7 @@ import 'package:jumia_clone/widgets/strike_through_price.dart';
 import '../core/util/format_time.dart';
 import '../theme/colors.dart';
 import '../widgets/custom_progress_bar.dart';
+import '../widgets/delivery_returns_info.dart';
 import '../widgets/discount_badge.dart';
 import '../widgets/flipped_icon_offer.dart';
 import '../widgets/persistent_footer_widget.dart';
@@ -445,6 +446,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
             SizedBox(height: 12,),
             PromotionsWidget(promotions: JumiaData.promotions),
+            SizedBox(height: 12,),
+            DeliveryReturnsInfo(
+              locations: JumiaData.sampleLocations,
+              currency: '₦',
+              onDetailsPressed: () {
+                print('Details pressed');
+              },
+            ),
             SizedBox(height: 12,),
             ProductDetailsWidget(details: widget.product.productDetails!.keyFeatures!),
             SizedBox(height: 12,),
