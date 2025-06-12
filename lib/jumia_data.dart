@@ -77,7 +77,7 @@ class JumiaData {
           comment: 'One side stopped working after a week. Not worth it.',
           rating: 2,
           createdAt: DateTime(2025, 6, 8),
-          isVerifiedPurchase: false,
+          isVerifiedPurchase: true,
         ),
         ReviewModel(
           userId: '4',
@@ -125,7 +125,44 @@ class JumiaData {
         label: ProductTag.nonReturnable(),
         brandId: 'Hilda\'s Kitchen',
         isFlashSale: true,
-
+        reviews: [
+          ReviewModel(
+            userId: '1',
+            title: 'Very good',
+            userName: 'Edirin',
+            comment: 'Good sound, balanced bass, long lasting. Good music sound. Great for calls too',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 10),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '2',
+            title: 'Not bad',
+            userName: 'Ada',
+            comment: 'Battery is okay. Sounds decent. A bit uncomfortable after long use.',
+            rating: 3,
+            createdAt: DateTime(2025, 6, 9),
+            isVerifiedPurchase: true,
+          ),
+          ReviewModel(
+            userId: '3',
+            title: 'Disappointed',
+            userName: 'Musa',
+            comment: 'One side stopped working after a week. Not worth it.',
+            rating: 2,
+            createdAt: DateTime(2025, 6, 8),
+            isVerifiedPurchase: false,
+          ),
+          ReviewModel(
+            userId: '4',
+            title: 'Excellent quality',
+            userName: 'Bola',
+            comment: 'Very clear audio. Great mic. I use it daily for work calls.',
+            rating: 5,
+            createdAt: DateTime(2025, 6, 7),
+            isVerifiedPurchase: true,
+          ),
+        ]
     ),
     ProductModel(
         id: '3',

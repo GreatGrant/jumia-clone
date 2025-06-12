@@ -24,7 +24,7 @@ class ReturnPolicyCard extends StatelessWidget {
             border: Border.all(color: Colors.grey[300]!),
             borderRadius: BorderRadius.circular(4),
           ),
-          child: Icon(Icons.keyboard_return, size: 18, color: AppColors.grey600),
+          child: Icon(Icons.keyboard_return, size: 18, color: AppColors.black87),
         ),
 
         const SizedBox(width: 12),

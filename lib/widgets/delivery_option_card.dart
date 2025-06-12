@@ -23,8 +23,8 @@ class DeliveryOptionCard extends StatelessWidget {
 
   Widget _buildCard(DeliveryOption option) {
     final icon = switch (option.icon) {
-      'pickup' => Icons.store,
-      _ => Icons.local_shipping,
+      'pickup' => Icons.store_outlined,
+      _ => Icons.local_shipping_outlined,
     };
 
     return Container(
@@ -39,7 +39,7 @@ class DeliveryOptionCard extends StatelessWidget {
               border: Border.all(color: Colors.grey[300]!),
               borderRadius: BorderRadius.circular(4),
             ),
-            child: Icon(icon, size: 18, color: AppColors.grey600),
+            child: Icon(icon, size: 18, color: AppColors.black87),
           ),
 
           const SizedBox(width: 12),
