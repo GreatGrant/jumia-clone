@@ -377,17 +377,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
       ),
       bottomNavigationBar: PersistentFooterWidget(
-        onHomePressed: () {
-          context.go('/home');
-        },
-        onCallPressed: () {
-          // Implement call functionality or navigate to contact page
-          print('Call pressed');
-        },
-        onAddToCartPressed: () {
-          // Implement add to cart logic
-          print('Add to cart pressed');
-        },
+        product: widget.product,
+
       ),
     );
   }
