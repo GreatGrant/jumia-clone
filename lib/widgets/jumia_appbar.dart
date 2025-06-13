@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:jumia_clone/theme/colors.dart';
+import '../cart_provider.dart'; // Make sure to import your cart provider
 
 class JumiaAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -16,94 +19,132 @@ class JumiaAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: const Icon(Icons.search_outlined),
-          onPressed: () {
-            context.go('/search');
-          },
+          onPressed: () => context.go('/search'),
         ),
-        IconButton(
-          icon: const Icon(Icons.shopping_cart_outlined),
-          onPressed: () {
-            context.go('/cart');
+        // Cart Icon with Badge
+        Consumer(
+          builder: (context, ref, _) {
+            final cartItemCount = ref.watch(cartItemCountProvider);
+            return Stack(
+              clipBehavior: Clip.none,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.shopping_cart_outlined),
+                  onPressed: () => context.go('/cart'),
+                ),
+                if (cartItemCount > 0)
+                  Positioned(
+                    top: 6,
+                    right: 6,
+                    child: Container(
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        shape: BoxShape.circle,
+                      ),
+                      constraints: const BoxConstraints(
+                        minWidth: 16,
+                        minHeight: 16,
+                      ),
+                      child: Text(
+                        cartItemCount.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+              ],
+            );
           },
         ),
         PopupMenuButton<String>(
-          onSelected: (value) {
-            switch (value) {
-              case 'home':
-                context.go('/home');
-                break;
-              case 'categories':
-                context.go('/categories');
-                break;
-              case 'cart':
-                context.go('/cart');
-                break;
-              case 'wishlist':
-                context.go('/wishlist');
-                break;
-              case 'account':
-                context.go('/account');
-                break;
-            }
-          },
-          itemBuilder: (BuildContext context) => const [
-            PopupMenuItem(
-              value: 'home',
-              child: Row(
-                children: [
-                  Icon(Icons.home_outlined, color: Colors.black),
-                  SizedBox(width: 8),
-                  Text('Home'),
-                ],
-              ),
-            ),
-            PopupMenuDivider(),
-            PopupMenuItem(
-              value: 'categories',
-              child: Row(
-                children: [
-                  Icon(Icons.view_list_outlined, color: Colors.black),
-                  SizedBox(width: 8),
-                  Text('Categories'),
-                ],
-              ),
-            ),
-            PopupMenuDivider(),
-            PopupMenuItem(
-              value: 'cart',
-              child: Row(
-                children: [
-                  Icon(Icons.shopping_cart_outlined, color: Colors.black),
-                  SizedBox(width: 8),
-                  Text('Cart'),
-                ],
-              ),
-            ),
-            PopupMenuDivider(),
-            PopupMenuItem(
-              value: 'wishlist',
-              child: Row(
-                children: [
-                  Icon(Icons.favorite_outline, color: Colors.black),
-                  SizedBox(width: 8),
-                  Text('Wishlist'),
-                ],
-              ),
-            ),
-            PopupMenuDivider(),
-            PopupMenuItem(
-              value: 'account',
-              child: Row(
-                children: [
-                  Icon(Icons.person_2_outlined, color: Colors.black),
-                  SizedBox(width: 8),
-                  Text('Account'),
-                ],
-              ),
-            ),
-          ],
+          onSelected: (value) => _handleMenuSelection(context, value),
+          itemBuilder: (BuildContext context) => _buildMenuItems(),
         ),
       ],
     );
+  }
+
+  void _handleMenuSelection(BuildContext context, String value) {
+    switch (value) {
+      case 'home':
+        context.go('/home');
+        break;
+      case 'categories':
+        context.go('/categories');
+        break;
+      case 'cart':
+        context.go('/cart');
+        break;
+      case 'wishlist':
+        context.go('/wishlist');
+        break;
+      case 'account':
+        context.go('/account');
+        break;
+    }
+  }
+
+  List<PopupMenuEntry<String>> _buildMenuItems() {
+    return const [
+      PopupMenuItem(
+        value: 'home',
+        child: Row(
+          children: [
+            Icon(Icons.home_outlined, color: Colors.black),
+            SizedBox(width: 8),
+            Text('Home'),
+          ],
+        ),
+      ),
+      PopupMenuDivider(),
+      PopupMenuItem(
+        value: 'categories',
+        child: Row(
+          children: [
+            Icon(Icons.view_list_outlined, color: Colors.black),
+            SizedBox(width: 8),
+            Text('Categories'),
+          ],
+        ),
+      ),
+      PopupMenuDivider(),
+      PopupMenuItem(
+        value: 'cart',
+        child: Row(
+          children: [
+            Icon(Icons.shopping_cart_outlined, color: Colors.black),
+            SizedBox(width: 8),
+            Text('Cart'),
+          ],
+        ),
+      ),
+      PopupMenuDivider(),
+      PopupMenuItem(
+        value: 'wishlist',
+        child: Row(
+          children: [
+            Icon(Icons.favorite_outline, color: Colors.black),
+            SizedBox(width: 8),
+            Text('Wishlist'),
+          ],
+        ),
+      ),
+      PopupMenuDivider(),
+      PopupMenuItem(
+        value: 'account',
+        child: Row(
+          children: [
+            Icon(Icons.person_2_outlined, color: Colors.black),
+            SizedBox(width: 8),
+            Text('Account'),
+          ],
+        ),
+      ),
+    ];
   }
 }
