@@ -1,9 +1,3 @@
-# jumia_clone
-
-A new Flutter project.
-
-## Getting Started
-
 jumia_clone/
 ├── lib/
 │   ├── main.dart
@@ -72,13 +66,12 @@ jumia_clone/
 │   │   │   ├── route_generator.dart
 │   │   │   └── route_guards.dart
 │   │   │
-│   │   └── di/
-│   │       ├── injection_container.dart
-│   │       ├── modules/
-│   │       │   ├── network_module.dart
-│   │       │   ├── storage_module.dart
-│   │       │   └── repository_module.dart
-│   │       └── service_locator.dart
+│   │   └── providers/
+│   │       ├── app_providers.dart
+│   │       ├── network_providers.dart
+│   │       ├── storage_providers.dart
+│   │       ├── repository_providers.dart
+│   │       └── state_providers.dart
 │   │
 │   ├── features/
 │   │   ├── authentication/
@@ -112,10 +105,10 @@ jumia_clone/
 │   │   │   │       └── get_current_user_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── auth_bloc.dart
-│   │   │       │   ├── auth_event.dart
-│   │   │       │   └── auth_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── auth_notifier.dart
+│   │   │       │   ├── auth_state.dart
+│   │   │       │   └── auth_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   ├── login_page.dart
@@ -161,10 +154,10 @@ jumia_clone/
 │   │   │   │       └── get_flash_sales_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── home_bloc.dart
-│   │   │       │   ├── home_event.dart
-│   │   │       │   └── home_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── home_notifier.dart
+│   │   │       │   ├── home_state.dart
+│   │   │       │   └── home_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   └── home_page.dart
@@ -211,21 +204,21 @@ jumia_clone/
 │   │   │   │       └── get_product_reviews_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
+│   │   │       ├── providers/
 │   │   │       │   ├── product_list/
-│   │   │       │   │   ├── product_list_bloc.dart
-│   │   │       │   │   ├── product_list_event.dart
-│   │   │       │   │   └── product_list_state.dart
+│   │   │       │   │   ├── product_list_notifier.dart
+│   │   │       │   │   ├── product_list_state.dart
+│   │   │       │   │   └── product_list_providers.dart
 │   │   │       │   │
 │   │   │       │   ├── product_detail/
-│   │   │       │   │   ├── product_detail_bloc.dart
-│   │   │       │   │   ├── product_detail_event.dart
-│   │   │       │   │   └── product_detail_state.dart
+│   │   │       │   │   ├── product_detail_notifier.dart
+│   │   │       │   │   ├── product_detail_state.dart
+│   │   │       │   │   └── product_detail_providers.dart
 │   │   │       │   │
 │   │   │       │   └── search/
-│   │   │       │       ├── search_bloc.dart
-│   │   │       │       ├── search_event.dart
-│   │   │       │       └── search_state.dart
+│   │   │       │       ├── search_notifier.dart
+│   │   │       │       ├── search_state.dart
+│   │   │       │       └── search_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   ├── product_list_page.dart
@@ -274,10 +267,10 @@ jumia_clone/
 │   │   │   │       └── apply_coupon_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── cart_bloc.dart
-│   │   │       │   ├── cart_event.dart
-│   │   │       │   └── cart_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── cart_notifier.dart
+│   │   │       │   ├── cart_state.dart
+│   │   │       │   └── cart_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   └── cart_page.dart
@@ -321,10 +314,10 @@ jumia_clone/
 │   │   │   │       └── calculate_total_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── checkout_bloc.dart
-│   │   │       │   ├── checkout_event.dart
-│   │   │       │   └── checkout_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── checkout_notifier.dart
+│   │   │       │   ├── checkout_state.dart
+│   │   │       │   └── checkout_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   ├── checkout_page.dart
@@ -368,10 +361,10 @@ jumia_clone/
 │   │   │   │       └── track_order_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── orders_bloc.dart
-│   │   │       │   ├── orders_event.dart
-│   │   │       │   └── orders_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── orders_notifier.dart
+│   │   │       │   ├── orders_state.dart
+│   │   │       │   └── orders_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   ├── orders_page.dart
@@ -409,10 +402,10 @@ jumia_clone/
 │   │   │   │       └── get_subcategories_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── category_bloc.dart
-│   │   │       │   ├── category_event.dart
-│   │   │       │   └── category_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── category_notifier.dart
+│   │   │       │   ├── category_state.dart
+│   │   │       │   └── category_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   ├── categories_page.dart
@@ -448,10 +441,10 @@ jumia_clone/
 │   │   │   │       └── get_wishlist_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── wishlist_bloc.dart
-│   │   │       │   ├── wishlist_event.dart
-│   │   │       │   └── wishlist_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── wishlist_notifier.dart
+│   │   │       │   ├── wishlist_state.dart
+│   │   │       │   └── wishlist_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   └── wishlist_page.dart
@@ -485,10 +478,10 @@ jumia_clone/
 │   │   │   │       └── clear_notifications_usecase.dart
 │   │   │   │
 │   │   │   └── presentation/
-│   │   │       ├── bloc/
-│   │   │       │   ├── notification_bloc.dart
-│   │   │       │   ├── notification_event.dart
-│   │   │       │   └── notification_state.dart
+│   │   │       ├── providers/
+│   │   │       │   ├── notification_notifier.dart
+│   │   │       │   ├── notification_state.dart
+│   │   │       │   └── notification_providers.dart
 │   │   │       │
 │   │   │       ├── pages/
 │   │   │       │   └── notifications_page.dart
@@ -523,10 +516,10 @@ jumia_clone/
 │   │       │       └── toggle_theme_usecase.dart
 │   │       │
 │   │       └── presentation/
-│   │           ├── bloc/
-│   │           │   ├── settings_bloc.dart
-│   │           │   ├── settings_event.dart
-│   │           │   └── settings_state.dart
+│   │           ├── providers/
+│   │           │   ├── settings_notifier.dart
+│   │           │   ├── settings_state.dart
+│   │           │   └── settings_providers.dart
 │   │           │
 │   │           ├── pages/
 │   │           │   ├── settings_page.dart
@@ -573,4 +566,29 @@ jumia_clone/
 │       │   ├── navigation/
 │       │   │   ├── bottom_nav_bar.dart
 │       │   │   ├── app_drawer.dart
-│       │   │   ├── custom_
+│       │   │   ├── custom_tab_bar.dart
+│       │   │   └── back_button.dart
+│       │   │
+│       │   └── others/
+│       │       ├── empty_state.dart
+│       │       ├── error_state.dart
+│       │       ├── rating_bar.dart
+│       │       └── price_widget.dart
+│       │
+│       ├── providers/
+│       │   ├── theme_provider.dart
+│       │   ├── locale_provider.dart
+│       │   └── connectivity_provider.dart
+│       │
+│       └── services/
+│           ├── navigation_service.dart
+│           ├── dialog_service.dart
+│           └── snackbar_service.dart
+│
+├── test/
+│   ├── core/
+│   ├── features/
+│   └── shared/
+│
+└── integration_test/
+└── app_test.dart
